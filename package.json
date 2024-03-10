@@ -1,0 +1,28 @@
+{
+  "name": "tree-sitter-langium",
+  "version": "0.0.1",
+  "author": "Binh Tran <binhtran432k@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binhtran432k/tree-sitter-langium.git"
+  },
+  "main": "bindings/node",
+  "dependencies": {
+    "nan": "^2.19.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "tree-sitter-cli": "^0.21.0"
+  },
+  "description": "Tree-sitter parser for Langium",
+  "keywords": [
+    "tree-sitter",
+    "tree-sitter-parser",
+    "langium"
+  ],
+  "scripts": {
+    "build": "tree-sitter generate",
+    "test": "tree-sitter test",
+    "test:update": "tree-sitter test --update"
+  }
+}

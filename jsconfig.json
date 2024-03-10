@@ -1,0 +1,16 @@
+{
+  "files": [
+    "grammar.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "checkJs": true,
+    "module": "Node16",
+    "types": [
+      "./dsl.d.ts",
+      "./grammar.d.ts"
+    ]
+  }
+}
