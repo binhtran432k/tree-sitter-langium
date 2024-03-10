@@ -5,7 +5,7 @@ module.exports = grammar({
 
   rules: {
     document: ($) =>
-      optional($.grammar_statement),
+      seq(optional($.grammar_statement), repeat($.import_statement)),
 
     grammar_statement: ($) =>
       seq(
@@ -18,7 +18,11 @@ module.exports = grammar({
     hidden_expression: ($) =>
       seq("hidden", "(", optional(seq($.id, repeat(seq(",", $.id)))), ")"),
 
+    import_statement: ($) =>
+      seq("import", field("path", $.string), optional(";")),
+
     id: () => /\^?[_a-zA-Z][\w_]*/,
+    string: () => /"(\\.|[^"\\])*"|'(\\.|[^'\\])*'/,
 
     block_comment: () => /\/\*([^*]|\*[^/])*\*?\*\//,
     line_comment: () => /\/\/[^\n\r]*/,
