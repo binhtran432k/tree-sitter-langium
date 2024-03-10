@@ -1,7 +1,7 @@
 module.exports = grammar({
   name: "langium",
 
-  extras: ($) => [/\s+/],
+  extras: ($) => [/\s+/, $.block_comment, $.line_comment],
 
   rules: {
     document: ($) =>
@@ -19,5 +19,8 @@ module.exports = grammar({
       seq("hidden", "(", optional(seq($.id, repeat(seq(",", $.id)))), ")"),
 
     id: () => /\^?[_a-zA-Z][\w_]*/,
+
+    block_comment: () => /\/\*([^*]|\*[^/])*\*?\*\//,
+    line_comment: () => /\/\/[^\n\r]*/,
   },
 });

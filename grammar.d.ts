@@ -5,6 +5,8 @@ interface LangiumGrammarStruct {
   hidden_expression: Rule;
 
   id: Rule;
+  block_comment: Rule;
+  line_comment: Rule;
 }
 
 interface LangiumExternalGrammarStruct {}
