@@ -9,6 +9,8 @@ interface LangiumGrammarStruct {
   string: Rule;
   block_comment: Rule;
   line_comment: Rule;
+
+  _ids: Rule;
 }
 
 interface LangiumExternalGrammarStruct {}

@@ -14,9 +14,8 @@ module.exports = grammar({
         optional($.with_expression),
         optional($.hidden_expression),
       ),
-    with_expression: ($) => seq("with", seq($.id, repeat(seq(",", $.id)))),
-    hidden_expression: ($) =>
-      seq("hidden", "(", optional(seq($.id, repeat(seq(",", $.id)))), ")"),
+    with_expression: ($) => seq("with", $._ids),
+    hidden_expression: ($) => seq("hidden", "(", optional($._ids), ")"),
 
     import_statement: ($) =>
       seq("import", field("path", $.string), optional(";")),
@@ -26,5 +25,7 @@ module.exports = grammar({
 
     block_comment: () => /\/\*([^*]|\*[^/])*\*?\*\//,
     line_comment: () => /\/\/[^\n\r]*/,
+
+    _ids: ($) => seq($.id, repeat(seq(",", $.id))),
   },
 });
