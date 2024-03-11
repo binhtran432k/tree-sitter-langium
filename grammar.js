@@ -50,6 +50,7 @@ module.exports = grammar({
     returns_expression: ($) =>
       seq("returns", field("type", choice($.id, $.primitive_type))),
     infers_expression: ($) => seq("infers", field("inferred_type", $.id)),
+    infer_expression: ($) => seq("infer", field("inferred_type", $.id)),
 
     _definition_expression: ($) =>
       choice(
@@ -57,7 +58,8 @@ module.exports = grammar({
       ),
     group_exression: ($) => repeat1($._abstract_token_expression),
 
-    _abstract_token_expression: ($) => choice($.cardinality_expression),
+    _abstract_token_expression: ($) =>
+      choice($.cardinality_expression, $.action_expression),
     cardinality_expression: ($) =>
       seq(
         choice($.assignment_expression, $._abstract_terminal_expression),
@@ -69,6 +71,20 @@ module.exports = grammar({
         field("feature", $._feature_name_expression),
         choice("+=", "=", "?="),
         field("terminal", $._assignable_terminal_expression),
+      ),
+    action_expression: ($) =>
+      seq(
+        "{",
+        field("type", choice($.id, $.infer_expression)),
+        optional(
+          seq(
+            ".",
+            field("feature", $._feature_name_expression),
+            choice("=", "+="),
+            "current",
+          ),
+        ),
+        "}",
       ),
 
     _abstract_terminal_expression: ($) =>

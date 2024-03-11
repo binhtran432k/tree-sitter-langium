@@ -4,6 +4,10 @@
   "hidden"
   "entry"
   "fragment"
+  "infers"
+  "returns"
+  "infer"
+  "current"
 ] @keyword
 
 (id) @variable
@@ -32,17 +36,23 @@
   ":"
   ";"
   ","
-] @punctuation.delimiter
+  "."
+] @keyword.symbol ; HACK: same as VSCode
 
 [
   "("
   ")"
+  "{"
+  "}"
   "<"
   ">"
 ] @punctuation.bracket
 
 (parameters
   (id) @variable.parameter)
+
+(action_expression
+  feature: (id) @property)
 
 (assignment_expression
   feature: (id) @property)

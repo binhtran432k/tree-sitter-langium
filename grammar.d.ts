@@ -10,6 +10,7 @@ interface LangiumGrammarStruct {
   rule_name_expression: Rule;
   returns_expression: Rule;
   infers_expression: Rule;
+  infer_expression: Rule;
 
   _definition_expression: Rule;
   group_exression: Rule;
@@ -17,6 +18,8 @@ interface LangiumGrammarStruct {
   _abstract_token_expression: Rule;
   cardinality_expression: Rule;
   assignment_expression: Rule;
+  action_expression: Rule;
+
   _abstract_terminal_expression: Rule;
   keyword_expression: Rule;
   rule_call_expression: Rule;

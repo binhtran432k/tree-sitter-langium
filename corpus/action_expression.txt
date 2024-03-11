@@ -1,0 +1,74 @@
+================================================================================
+only id
+================================================================================
+Hello: { World };
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (action_expression
+        (id)))))
+
+================================================================================
+infer
+================================================================================
+Hello: { infer World };
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (action_expression
+        (infer_expression
+          (id))))))
+
+================================================================================
+assign current
+================================================================================
+Hello: { World.id = current };
+Hello: { World.number = current };
+Hello: { World.grammar = current };
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (action_expression
+        (id)
+        (id))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (action_expression
+        (id)
+        (primitive_type))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (action_expression
+        (id)
+        (builtin_feature_name)))))
+
+================================================================================
+assign plus current
+================================================================================
+Hello: { World.id += current };
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (action_expression
+        (id)
+        (id)))))
