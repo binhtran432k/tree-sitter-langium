@@ -1,16 +1,52 @@
 ================================================================================
-comment
+line comment
 ================================================================================
 // line comment
-
-/* anothor block comment */
-
-/*
- * block comment
- */
+entry Hello: 'hello';
 --------------------------------------------------------------------------------
 
 (document
   (line_comment)
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
+
+================================================================================
+block comment single line
+================================================================================
+/* anothor block comment */
+entry Hello: 'hello';
+--------------------------------------------------------------------------------
+
+(document
   (block_comment)
-  (block_comment))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
+
+================================================================================
+block comment multiple line
+================================================================================
+/*
+ * block comment
+ */
+entry Hello: 'hello';
+--------------------------------------------------------------------------------
+
+(document
+  (block_comment)
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))

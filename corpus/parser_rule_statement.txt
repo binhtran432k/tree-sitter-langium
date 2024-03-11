@@ -1,0 +1,276 @@
+================================================================================
+entry
+================================================================================
+entry Hello: 'hello';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
+
+================================================================================
+fragment
+================================================================================
+fragment Fragment: 'frag';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
+
+================================================================================
+wildcard
+================================================================================
+Hello*: 'hello';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
+
+================================================================================
+parameters
+================================================================================
+Program<Parameter>: 'hello';
+Program<Parameter1, Parameter2>: 'hello';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id)
+      (parameters
+        (id)))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string)))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id)
+      (parameters
+        (id)
+        (id)))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
+
+================================================================================
+returns
+================================================================================
+Hello returns string: 'hello';
+HelloOjbect returns Object: 'object';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (returns_expression
+      (primitive_type))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string)))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (returns_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
+
+================================================================================
+infers
+================================================================================
+Hello infers Object: 'hello';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (infers_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
+
+================================================================================
+hidden
+================================================================================
+Hello hidden (Hidden): 'hello';
+Hello hidden (Hidden1, Hidden2): 'hello';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (hidden_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string)))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (hidden_expression
+      (id)
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
+
+================================================================================
+cardinality
+================================================================================
+Hello: name=ID+;
+Hello: 'hello'?;
+Hello: 'hello'*;
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (id)
+          (rule_call_expression
+            (id))))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string)))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
+
+================================================================================
+assignment
+================================================================================
+Hello: => name=ID;
+Hello: -> name=ID;
+Hello: name?=ID;
+Hello: name+=ID;
+Hello: Date=ID;
+Hello: entry=ID;
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (id)
+          (rule_call_expression
+            (id))))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (id)
+          (rule_call_expression
+            (id))))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (id)
+          (rule_call_expression
+            (id))))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (id)
+          (rule_call_expression
+            (id))))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (primitive_type)
+          (rule_call_expression
+            (id))))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (builtin_feature_name)
+          (rule_call_expression
+            (id)))))))
+
+================================================================================
+keyword
+================================================================================
+Hello: 'hello';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
+
+================================================================================
+rule call
+================================================================================
+Hello: name=ID;
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (id)
+          (rule_call_expression
+            (id)))))))

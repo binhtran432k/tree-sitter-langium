@@ -1,12 +1,35 @@
 ================================================================================
-import statement
+import
 ================================================================================
 import "./example"
-import "./example2";
+entry Hello: 'hello';
 --------------------------------------------------------------------------------
 
 (document
   (import_statement
     (string))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
+
+================================================================================
+import with semicolon
+================================================================================
+import "./example";
+entry Hello: 'hello';
+--------------------------------------------------------------------------------
+
+(document
   (import_statement
-    (string)))
+    (string))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))

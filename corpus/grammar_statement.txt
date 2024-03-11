@@ -1,18 +1,27 @@
 ================================================================================
-grammar statement
+grammar
 ================================================================================
 grammar MyLanguage
+entry Hello: 'hello';
 --------------------------------------------------------------------------------
 
 (document
   (grammar_statement
-    (id)))
+    (id))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
 
 ================================================================================
-with expresssion
+with
 ================================================================================
 grammar MyLanguage
 with UsedGrammar, UsedGrammar2
+entry Hello: 'hello';
 --------------------------------------------------------------------------------
 
 (document
@@ -20,13 +29,21 @@ with UsedGrammar, UsedGrammar2
     (id)
     (with_expression
       (id)
-      (id))))
+      (id)))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
 
 ================================================================================
-hidden expresssion
+hidden
 ================================================================================
 grammar MyLanguage
 hidden (HiddenToken, HiddenToken2)
+entry Hello: 'hello';
 --------------------------------------------------------------------------------
 
 (document
@@ -34,4 +51,11 @@ hidden (HiddenToken, HiddenToken2)
     (id)
     (hidden_expression
       (id)
-      (id))))
+      (id)))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))

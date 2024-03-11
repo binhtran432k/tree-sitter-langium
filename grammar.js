@@ -5,7 +5,11 @@ module.exports = grammar({
 
   rules: {
     document: ($) =>
-      seq(optional($.grammar_statement), repeat($.import_statement)),
+      seq(
+        optional($.grammar_statement),
+        repeat($.import_statement),
+        repeat1($._abstract_rule_statement),
+      ),
 
     grammar_statement: ($) =>
       seq(
@@ -17,11 +21,93 @@ module.exports = grammar({
     with_expression: ($) => seq("with", $._ids),
     hidden_expression: ($) => seq("hidden", "(", optional($._ids), ")"),
 
+    _abstract_rule_statement: ($) => $.parser_rule_statement,
+
     import_statement: ($) =>
       seq("import", field("path", $.string), optional(";")),
 
+    parser_rule_statement: ($) =>
+      seq(
+        optional(choice("entry", "fragment")),
+        $.rule_name_expression,
+        optional(choice("*", $.returns_expression, $.infers_expression)),
+        optional($.hidden_expression),
+        ":",
+        $._definition_expression,
+        ";",
+      ),
+    rule_name_expression: ($) =>
+      seq(
+        field("name", $.id),
+        optional(
+          seq(
+            "<",
+            optional(field("parameters", alias($._ids, $.parameters))),
+            ">",
+          ),
+        ),
+      ),
+    returns_expression: ($) =>
+      seq("returns", field("type", choice($.id, $.primitive_type))),
+    infers_expression: ($) => seq("infers", field("inferred_type", $.id)),
+
+    _definition_expression: ($) =>
+      choice(
+        prec(4, $.group_exression),
+      ),
+    group_exression: ($) => repeat1($._abstract_token_expression),
+
+    _abstract_token_expression: ($) => choice($.cardinality_expression),
+    cardinality_expression: ($) =>
+      seq(
+        choice($.assignment_expression, $._abstract_terminal_expression),
+        optional(choice("?", "*", "+")),
+      ),
+    assignment_expression: ($) =>
+      seq(
+        optional(choice("=>", "->")),
+        field("feature", $._feature_name_expression),
+        choice("+=", "=", "?="),
+        field("terminal", $._assignable_terminal_expression),
+      ),
+
+    _abstract_terminal_expression: ($) =>
+      choice($.keyword_expression, $.rule_call_expression),
+    keyword_expression: ($) => $.string,
+    rule_call_expression: ($) =>
+      seq(
+        field("rule", $.id),
+      ),
+
+    _assignable_terminal_expression: ($) =>
+      choice($.keyword_expression, $.rule_call_expression),
+
+    _feature_name_expression: ($) =>
+      choice($.builtin_feature_name, $.primitive_type, $.id),
+
     id: () => /\^?[_a-zA-Z][\w_]*/,
     string: () => /"(\\.|[^"\\])*"|'(\\.|[^'\\])*'/,
+    builtin_feature_name: () =>
+      choice(
+        "current",
+        "entry",
+        "extends",
+        "false",
+        "fragment",
+        "grammar",
+        "hidden",
+        "import",
+        "interface",
+        "returns",
+        "terminal",
+        "true",
+        "type",
+        "infer",
+        "infers",
+        "with",
+      ),
+    primitive_type: () =>
+      choice("string", "number", "boolean", "Date", "bigint"),
 
     block_comment: () => /\/\*([^*]|\*[^/])*\*?\*\//,
     line_comment: () => /\/\/[^\n\r]*/,
