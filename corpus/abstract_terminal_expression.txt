@@ -1,0 +1,31 @@
+================================================================================
+keyword
+================================================================================
+Hello: 'hello';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
+
+================================================================================
+rule call
+================================================================================
+Hello: name=ID;
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (id)
+          (rule_call_expression
+            (id)))))))
