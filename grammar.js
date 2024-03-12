@@ -133,6 +133,19 @@ module.exports = grammar({
     rule_call_expression: ($) =>
       seq(
         field("rule", $.id),
+        optional(
+          seq(
+            "<",
+            $.named_argument_expression,
+            repeat(seq(",", $.named_argument_expression)),
+            ">",
+          ),
+        ),
+      ),
+    named_argument_expression: ($) =>
+      seq(
+        optional(seq(field("parameter", $.id), "=")),
+        $._condition_expression,
       ),
 
     _assignable_terminal_expression: ($) =>
