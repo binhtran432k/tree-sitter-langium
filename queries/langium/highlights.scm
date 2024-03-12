@@ -25,6 +25,9 @@
   "*"
   "+"
   "?"
+  "|"
+  "&"
+  "!"
 ] @operator
 
 [
@@ -47,6 +50,13 @@
   "<"
   ">"
 ] @punctuation.bracket
+
+(builtin_feature_name) @keyword
+
+(boolean_literal) @boolean
+
+(parameter_reference_expression
+  (id) @variable.parameter)
 
 (parameters
   (id) @variable.parameter)
