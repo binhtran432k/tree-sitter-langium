@@ -83,8 +83,7 @@ Hello: <Greet> 'hello';
     (rule_name_expression
       (id))
     (conditional_branch_expression
-      (parameter_reference_expression
-        (id))
+      (parameter_reference)
       (cardinality_expression
         (keyword)))))
 
@@ -99,8 +98,7 @@ Hello: <Greet> 'hello' 'world';
     (rule_name_expression
       (id))
     (conditional_branch_expression
-      (parameter_reference_expression
-        (id))
+      (parameter_reference)
       (cardinality_expression
         (keyword))
       (cardinality_expression

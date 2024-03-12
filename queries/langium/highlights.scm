@@ -58,8 +58,7 @@
 
 (boolean_literal) @boolean
 
-(parameter_reference_expression
-  (id) @variable.parameter)
+(parameter_reference) @variable.parameter
 
 (parameters
   (id) @variable.parameter)

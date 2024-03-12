@@ -29,7 +29,7 @@ interface LangiumGrammarStruct {
   negation_expression: Rule;
   _atom_expression: Rule;
   parenthesized_condition_expression: Rule;
-  parameter_reference_expression: Rule;
+  _parameter_reference_expression: Rule;
 
   _abstract_terminal_expression: Rule;
   _keyword_expression: Rule;
@@ -52,6 +52,7 @@ interface LangiumGrammarStruct {
   // Aliases
   parameters?: Rule;
   keyword?: Rule;
+  parameter_reference?: Rule;
 }
 
 interface LangiumExternalGrammarStruct {}

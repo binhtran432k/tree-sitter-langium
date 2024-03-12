@@ -161,14 +161,14 @@ module.exports = grammar({
       prec(
         PREC.ATOM,
         choice(
-          $.parameter_reference_expression,
+          $._parameter_reference_expression,
           $.parenthesized_condition_expression,
           $.boolean_literal,
         ),
       ),
     parenthesized_condition_expression: ($) =>
       seq("(", $._condition_expression, ")"),
-    parameter_reference_expression: ($) => field("parameter", $.id),
+    _parameter_reference_expression: ($) => alias($.id, $.parameter_reference),
 
     _feature_name_expression: ($) =>
       choice($.builtin_feature_name, $.primitive_type, $.id),

@@ -11,10 +11,8 @@ Hello: <a | b | c> 'hello';
       (id))
     (conditional_branch_expression
       (disjunction_expression
-        (parameter_reference_expression
-          (id))
-        (parameter_reference_expression
-          (id)))
+        (parameter_reference)
+        (parameter_reference))
       (cardinality_expression
         (keyword))))
   (parser_rule_statement
@@ -23,12 +21,9 @@ Hello: <a | b | c> 'hello';
     (conditional_branch_expression
       (disjunction_expression
         (disjunction_expression
-          (parameter_reference_expression
-            (id))
-          (parameter_reference_expression
-            (id)))
-        (parameter_reference_expression
-          (id)))
+          (parameter_reference)
+          (parameter_reference))
+        (parameter_reference))
       (cardinality_expression
         (keyword)))))
 
@@ -45,10 +40,8 @@ Hello: <a & b & c> 'hello';
       (id))
     (conditional_branch_expression
       (conjunction_expression
-        (parameter_reference_expression
-          (id))
-        (parameter_reference_expression
-          (id)))
+        (parameter_reference)
+        (parameter_reference))
       (cardinality_expression
         (keyword))))
   (parser_rule_statement
@@ -57,12 +50,9 @@ Hello: <a & b & c> 'hello';
     (conditional_branch_expression
       (conjunction_expression
         (conjunction_expression
-          (parameter_reference_expression
-            (id))
-          (parameter_reference_expression
-            (id)))
-        (parameter_reference_expression
-          (id)))
+          (parameter_reference)
+          (parameter_reference))
+        (parameter_reference))
       (cardinality_expression
         (keyword)))))
 
@@ -79,8 +69,7 @@ Hello: <!!a> 'hello';
       (id))
     (conditional_branch_expression
       (negation_expression
-        (parameter_reference_expression
-          (id)))
+        (parameter_reference))
       (cardinality_expression
         (keyword))))
   (parser_rule_statement
@@ -89,8 +78,7 @@ Hello: <!!a> 'hello';
     (conditional_branch_expression
       (negation_expression
         (negation_expression
-          (parameter_reference_expression
-            (id))))
+          (parameter_reference)))
       (cardinality_expression
         (keyword)))))
 
@@ -105,8 +93,7 @@ Hello: <a> 'hello';
     (rule_name_expression
       (id))
     (conditional_branch_expression
-      (parameter_reference_expression
-        (id))
+      (parameter_reference)
       (cardinality_expression
         (keyword)))))
 
@@ -122,8 +109,7 @@ Hello: <(a)> 'hello';
       (id))
     (conditional_branch_expression
       (parenthesized_condition_expression
-        (parameter_reference_expression
-          (id)))
+        (parameter_reference))
       (cardinality_expression
         (keyword)))))
 
@@ -158,10 +144,8 @@ Hello: <a & (b | c) & true> 'hello';
     (conditional_branch_expression
       (disjunction_expression
         (disjunction_expression
-          (parameter_reference_expression
-            (id))
-          (parameter_reference_expression
-            (id)))
+          (parameter_reference)
+          (parameter_reference))
         (negation_expression
           (negation_expression
             (boolean_literal))))
@@ -173,13 +157,10 @@ Hello: <a & (b | c) & true> 'hello';
     (conditional_branch_expression
       (disjunction_expression
         (disjunction_expression
-          (parameter_reference_expression
-            (id))
+          (parameter_reference)
           (conjunction_expression
-            (parameter_reference_expression
-              (id))
-            (parameter_reference_expression
-              (id))))
+            (parameter_reference)
+            (parameter_reference)))
         (boolean_literal))
       (cardinality_expression
         (keyword))))
@@ -189,13 +170,10 @@ Hello: <a & (b | c) & true> 'hello';
     (conditional_branch_expression
       (disjunction_expression
         (conjunction_expression
-          (parameter_reference_expression
-            (id))
-          (parameter_reference_expression
-            (id)))
+          (parameter_reference)
+          (parameter_reference))
         (conjunction_expression
-          (parameter_reference_expression
-            (id))
+          (parameter_reference)
           (boolean_literal)))
       (cardinality_expression
         (keyword))))
@@ -205,14 +183,11 @@ Hello: <a & (b | c) & true> 'hello';
     (conditional_branch_expression
       (conjunction_expression
         (conjunction_expression
-          (parameter_reference_expression
-            (id))
+          (parameter_reference)
           (parenthesized_condition_expression
             (disjunction_expression
-              (parameter_reference_expression
-                (id))
-              (parameter_reference_expression
-                (id)))))
+              (parameter_reference)
+              (parameter_reference))))
         (boolean_literal))
       (cardinality_expression
         (keyword)))))
