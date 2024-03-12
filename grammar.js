@@ -167,7 +167,18 @@ module.exports = grammar({
       seq(choice("=>", "->"), "(", $._definition_expression, ")"),
 
     _assignable_terminal_expression: ($) =>
-      choice($._keyword_expression, $.rule_call_expression),
+      choice(
+        $._keyword_expression,
+        $.rule_call_expression,
+        $.parenthesized_assignable_element_expression,
+      ),
+    parenthesized_assignable_element_expression: ($) =>
+      seq("(", $.assignable_alternatives_expression, ")"),
+    assignable_alternatives_expression: ($) =>
+      seq(
+        $._assignable_terminal_expression,
+        repeat(seq("|", $._assignable_terminal_expression)),
+      ),
 
     _condition_expression: ($) =>
       choice(

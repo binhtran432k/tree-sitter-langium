@@ -84,3 +84,34 @@ Hello: name=ID<Hello=Hi|Hey>;
               (disjunction_expression
                 (parameter_reference)
                 (parameter_reference)))))))))
+
+================================================================================
+parenthesized assignable element
+================================================================================
+Hello: name=('hello');
+Hello: name=('hello' | 'world' | '!!!');
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (id)
+          (parenthesized_assignable_element_expression
+            (assignable_alternatives_expression
+              (keyword)))))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (id)
+          (parenthesized_assignable_element_expression
+            (assignable_alternatives_expression
+              (keyword)
+              (keyword)
+              (keyword))))))))
