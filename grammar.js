@@ -18,6 +18,8 @@ module.exports = grammar({
 
   inline: ($) => [$.__rule_call],
 
+  word: ($) => $.id,
+
   rules: {
     document: ($) =>
       seq(
