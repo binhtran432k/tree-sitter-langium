@@ -15,6 +15,7 @@ interface LangiumGrammarStruct {
   _definition_expression: Rule;
   alternatives_expression: Rule;
   conditional_branch_expression: Rule;
+  unordered_group_expression: Rule;
   group_exression: Rule;
 
   _abstract_token_expression: Rule;

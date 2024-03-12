@@ -2,6 +2,7 @@ const PREC = Object.freeze({
   // Definition
   ALTERNATIVES: 1,
   CONDITIONAL_BRANCH: 2,
+  UNORDERED_GROUP: 3,
   GROUP: 4,
   // Condition
   ATOM: 4,
@@ -65,6 +66,7 @@ module.exports = grammar({
       choice(
         $.alternatives_expression,
         $.conditional_branch_expression,
+        $.unordered_group_expression,
         $.group_exression,
       ),
     alternatives_expression: ($) =>
@@ -81,6 +83,11 @@ module.exports = grammar({
           ">",
           repeat1($._abstract_token_expression),
         ),
+      ),
+    unordered_group_expression: ($) =>
+      prec.left(
+        PREC.UNORDERED_GROUP,
+        seq($._definition_expression, "&", $._definition_expression),
       ),
     group_exression: ($) =>
       prec.left(PREC.GROUP, repeat1($._abstract_token_expression)),
