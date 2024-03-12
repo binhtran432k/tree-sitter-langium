@@ -140,7 +140,7 @@ module.exports = grammar({
         $.disjunction_expression,
         $.conjunction_expression,
         $.negation_expression,
-        $.atom_expression,
+        $._atom_expression,
       ),
     disjunction_expression: ($) =>
       prec.left(
@@ -154,7 +154,7 @@ module.exports = grammar({
       ),
     negation_expression: ($) =>
       prec.right(PREC.NEGATION, seq("!", $._condition_expression)),
-    atom_expression: ($) =>
+    _atom_expression: ($) =>
       prec(
         PREC.ATOM,
         choice(
