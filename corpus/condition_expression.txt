@@ -129,3 +129,23 @@ Hello: <a> 'hello';
       (cardinality_expression
         (keyword_expression
           (string))))))
+
+================================================================================
+atom parenthesized condition
+================================================================================
+Hello: <(a)> 'hello';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (conditional_branch_expression
+      (atom_expression
+        (parenthesized_condition_expression
+          (atom_expression
+            (parameter_reference_expression
+              (id)))))
+      (cardinality_expression
+        (keyword_expression
+          (string))))))

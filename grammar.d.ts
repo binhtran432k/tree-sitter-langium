@@ -28,6 +28,7 @@ interface LangiumGrammarStruct {
   conjunction_expression: Rule;
   negation_expression: Rule;
   atom_expression: Rule;
+  parenthesized_condition_expression: Rule;
   parameter_reference_expression: Rule;
 
   _abstract_terminal_expression: Rule;
