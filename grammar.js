@@ -101,7 +101,7 @@ module.exports = grammar({
 
     _abstract_terminal_expression: ($) =>
       choice($.keyword_expression, $.rule_call_expression),
-    keyword_expression: ($) => $.string,
+    keyword_expression: ($) => field("keyword", $.string),
     rule_call_expression: ($) =>
       seq(
         field("rule", $.id),
