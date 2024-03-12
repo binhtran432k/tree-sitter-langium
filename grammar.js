@@ -1,4 +1,5 @@
 const PREC = Object.freeze({
+  ALTERNATIVES: 1,
   GROUP: 4,
 });
 
@@ -58,7 +59,13 @@ module.exports = grammar({
 
     _definition_expression: ($) =>
       choice(
+        $.alternatives_expression,
         $.group_exression,
+      ),
+    alternatives_expression: ($) =>
+      prec.left(
+        PREC.ALTERNATIVES,
+        seq($._definition_expression, "|", $._definition_expression),
       ),
     group_exression: ($) =>
       prec.left(PREC.GROUP, repeat1($._abstract_token_expression)),

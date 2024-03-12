@@ -33,3 +33,51 @@ Hello: 'hello' 'world' '!!!';
       (cardinality_expression
         (keyword_expression
           (string))))))
+
+================================================================================
+alternatives single
+================================================================================
+Hello: 'hello' | 'world';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (alternatives_expression
+      (group_exression
+        (cardinality_expression
+          (keyword_expression
+            (string))))
+      (group_exression
+        (cardinality_expression
+          (keyword_expression
+            (string)))))))
+
+================================================================================
+alternatives multiple
+================================================================================
+Hello: 'hello' | ',' 'world' | '!!!';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (alternatives_expression
+      (alternatives_expression
+        (group_exression
+          (cardinality_expression
+            (keyword_expression
+              (string))))
+        (group_exression
+          (cardinality_expression
+            (keyword_expression
+              (string)))
+          (cardinality_expression
+            (keyword_expression
+              (string)))))
+      (group_exression
+        (cardinality_expression
+          (keyword_expression
+            (string)))))))

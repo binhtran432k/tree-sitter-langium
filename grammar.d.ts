@@ -13,6 +13,7 @@ interface LangiumGrammarStruct {
   infer_expression: Rule;
 
   _definition_expression: Rule;
+  alternatives_expression: Rule;
   group_exression: Rule;
 
   _abstract_token_expression: Rule;
