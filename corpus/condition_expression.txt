@@ -38,3 +38,44 @@ Hello: <a | b | c> 'hello';
       (cardinality_expression
         (keyword_expression
           (string))))))
+
+================================================================================
+conjunction
+================================================================================
+Hello: <a & b> 'hello';
+Hello: <a & b & c> 'hello';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (conditional_branch_expression
+      (conjunction_expression
+        (atom_expression
+          (parameter_reference_expression
+            (id)))
+        (atom_expression
+          (parameter_reference_expression
+            (id))))
+      (cardinality_expression
+        (keyword_expression
+          (string)))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (conditional_branch_expression
+      (conjunction_expression
+        (conjunction_expression
+          (atom_expression
+            (parameter_reference_expression
+              (id)))
+          (atom_expression
+            (parameter_reference_expression
+              (id))))
+        (atom_expression
+          (parameter_reference_expression
+            (id))))
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
