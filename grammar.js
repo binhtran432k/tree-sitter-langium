@@ -136,6 +136,7 @@ module.exports = grammar({
         $.predicated_keyword_expression,
         $.predicated_rule_call_expression,
         $.predicated_group_expression,
+        $.eof,
       ),
     _keyword_expression: ($) => alias($.string, $.keyword),
     rule_call_expression: ($) => $.__rule_call,
@@ -227,6 +228,7 @@ module.exports = grammar({
     primitive_type: () =>
       choice("string", "number", "boolean", "Date", "bigint"),
     boolean_literal: () => choice("true", "false"),
+    eof: () => "EOF",
 
     block_comment: () => /\/\*([^*]|\*[^/])*\*?\*\//,
     line_comment: () => /\/\/[^\n\r]*/,
