@@ -24,6 +24,7 @@ interface LangiumGrammarStruct {
   action_expression: Rule;
 
   _condition_expression: Rule;
+  disjunction_expression: Rule;
   atom_expression: Rule;
   parameter_reference_expression: Rule;
 
