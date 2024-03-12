@@ -10,8 +10,7 @@ entry Hello: 'hello';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 fragment
@@ -25,8 +24,7 @@ fragment Fragment: 'frag';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 wildcard
@@ -40,8 +38,7 @@ Hello*: 'hello';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 parameters
@@ -58,8 +55,7 @@ Program<Parameter1, Parameter2>: 'hello';
         (id)))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string)))))
+        (keyword))))
   (parser_rule_statement
     (rule_name_expression
       (id)
@@ -68,8 +64,7 @@ Program<Parameter1, Parameter2>: 'hello';
         (id)))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 returns
@@ -86,8 +81,7 @@ HelloOjbect returns Object: 'object';
       (primitive_type))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string)))))
+        (keyword))))
   (parser_rule_statement
     (rule_name_expression
       (id))
@@ -95,8 +89,7 @@ HelloOjbect returns Object: 'object';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 infers
@@ -112,8 +105,7 @@ Hello infers Object: 'hello';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 hidden
@@ -130,8 +122,7 @@ Hello hidden (Hidden1, Hidden2): 'hello';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string)))))
+        (keyword))))
   (parser_rule_statement
     (rule_name_expression
       (id))
@@ -140,8 +131,7 @@ Hello hidden (Hidden1, Hidden2): 'hello';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 cardinality
@@ -166,12 +156,10 @@ Hello: 'hello'*;
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string)))))
+        (keyword))))
   (parser_rule_statement
     (rule_name_expression
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))

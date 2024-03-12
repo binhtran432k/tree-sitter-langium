@@ -125,15 +125,18 @@ module.exports = grammar({
       ),
 
     _abstract_terminal_expression: ($) =>
-      choice($.keyword_expression, $.rule_call_expression),
-    keyword_expression: ($) => field("keyword", $.string),
+      choice(
+        $._keyword_expression,
+        $.rule_call_expression,
+      ),
+    _keyword_expression: ($) => alias($.string, $.keyword),
     rule_call_expression: ($) =>
       seq(
         field("rule", $.id),
       ),
 
     _assignable_terminal_expression: ($) =>
-      choice($.keyword_expression, $.rule_call_expression),
+      choice($._keyword_expression, $.rule_call_expression),
 
     _condition_expression: ($) =>
       choice(

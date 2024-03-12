@@ -10,8 +10,7 @@ Hello: 'hello';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 group multiple
@@ -25,14 +24,11 @@ Hello: 'hello' 'world' '!!!';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string)))
+        (keyword))
       (cardinality_expression
-        (keyword_expression
-          (string)))
+        (keyword))
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 alternatives single
@@ -47,12 +43,10 @@ Hello: 'hello' | 'world';
     (alternatives_expression
       (group_exression
         (cardinality_expression
-          (keyword_expression
-            (string))))
+          (keyword)))
       (group_exression
         (cardinality_expression
-          (keyword_expression
-            (string)))))))
+          (keyword))))))
 
 ================================================================================
 alternatives multiple
@@ -68,19 +62,15 @@ Hello: 'hello' | ',' 'world' | '!!!';
       (alternatives_expression
         (group_exression
           (cardinality_expression
-            (keyword_expression
-              (string))))
+            (keyword)))
         (group_exression
           (cardinality_expression
-            (keyword_expression
-              (string)))
+            (keyword))
           (cardinality_expression
-            (keyword_expression
-              (string)))))
+            (keyword))))
       (group_exression
         (cardinality_expression
-          (keyword_expression
-            (string)))))))
+          (keyword))))))
 
 ================================================================================
 conditional branch
@@ -96,8 +86,7 @@ Hello: <Greet> 'hello';
       (parameter_reference_expression
         (id))
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 conditional branch multiple token
@@ -113,11 +102,9 @@ Hello: <Greet> 'hello' 'world';
       (parameter_reference_expression
         (id))
       (cardinality_expression
-        (keyword_expression
-          (string)))
+        (keyword))
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 unordered group
@@ -132,12 +119,10 @@ Hello: 'hello' & 'world';
     (unordered_group_expression
       (group_exression
         (cardinality_expression
-          (keyword_expression
-            (string))))
+          (keyword)))
       (group_exression
         (cardinality_expression
-          (keyword_expression
-            (string)))))))
+          (keyword))))))
 
 ================================================================================
 unordered group multiple
@@ -153,19 +138,15 @@ Hello: 'hello' & ',' 'world' & '!!!';
       (unordered_group_expression
         (group_exression
           (cardinality_expression
-            (keyword_expression
-              (string))))
+            (keyword)))
         (group_exression
           (cardinality_expression
-            (keyword_expression
-              (string)))
+            (keyword))
           (cardinality_expression
-            (keyword_expression
-              (string)))))
+            (keyword))))
       (group_exression
         (cardinality_expression
-          (keyword_expression
-            (string)))))))
+          (keyword))))))
 
 ================================================================================
 complex definition
@@ -182,21 +163,17 @@ Hello: 'hello' & ',' | 'world' & '!!!';
       (alternatives_expression
         (group_exression
           (cardinality_expression
-            (keyword_expression
-              (string))))
+            (keyword)))
         (unordered_group_expression
           (group_exression
             (cardinality_expression
-              (keyword_expression
-                (string))))
+              (keyword)))
           (group_exression
             (cardinality_expression
-              (keyword_expression
-                (string))))))
+              (keyword)))))
       (group_exression
         (cardinality_expression
-          (keyword_expression
-            (string))))))
+          (keyword)))))
   (parser_rule_statement
     (rule_name_expression
       (id))
@@ -204,18 +181,14 @@ Hello: 'hello' & ',' | 'world' & '!!!';
       (unordered_group_expression
         (group_exression
           (cardinality_expression
-            (keyword_expression
-              (string))))
+            (keyword)))
         (group_exression
           (cardinality_expression
-            (keyword_expression
-              (string)))))
+            (keyword))))
       (unordered_group_expression
         (group_exression
           (cardinality_expression
-            (keyword_expression
-              (string))))
+            (keyword)))
         (group_exression
           (cardinality_expression
-            (keyword_expression
-              (string))))))))
+            (keyword)))))))

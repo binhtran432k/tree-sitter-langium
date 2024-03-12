@@ -13,8 +13,7 @@ entry Hello: 'hello';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 with
@@ -35,8 +34,7 @@ entry Hello: 'hello';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 hidden
@@ -57,5 +55,4 @@ entry Hello: 'hello';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))

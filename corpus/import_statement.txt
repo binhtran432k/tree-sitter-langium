@@ -13,8 +13,7 @@ entry Hello: 'hello';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 import with semicolon
@@ -31,5 +30,4 @@ entry Hello: 'hello';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))

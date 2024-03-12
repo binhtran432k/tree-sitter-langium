@@ -12,7 +12,10 @@
 
 (id) @variable
 
-(string) @string
+[
+  (string)
+  (keyword)
+] @string
 
 "import" @keyword.import
 

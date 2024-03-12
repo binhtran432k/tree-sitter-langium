@@ -12,8 +12,7 @@ entry Hello: 'hello';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 block comment single line
@@ -29,8 +28,7 @@ entry Hello: 'hello';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 block comment multiple line
@@ -48,5 +46,4 @@ entry Hello: 'hello';
       (id))
     (group_exression
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))

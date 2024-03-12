@@ -32,7 +32,7 @@ interface LangiumGrammarStruct {
   parameter_reference_expression: Rule;
 
   _abstract_terminal_expression: Rule;
-  keyword_expression: Rule;
+  _keyword_expression: Rule;
   rule_call_expression: Rule;
 
   _assignable_terminal_expression: Rule;
@@ -49,7 +49,9 @@ interface LangiumGrammarStruct {
 
   _ids: Rule;
 
+  // Aliases
   parameters?: Rule;
+  keyword?: Rule;
 }
 
 interface LangiumExternalGrammarStruct {}

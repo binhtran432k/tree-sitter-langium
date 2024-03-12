@@ -16,8 +16,7 @@ Hello: <a | b | c> 'hello';
         (parameter_reference_expression
           (id)))
       (cardinality_expression
-        (keyword_expression
-          (string)))))
+        (keyword))))
   (parser_rule_statement
     (rule_name_expression
       (id))
@@ -31,8 +30,7 @@ Hello: <a | b | c> 'hello';
         (parameter_reference_expression
           (id)))
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 conjunction
@@ -52,8 +50,7 @@ Hello: <a & b & c> 'hello';
         (parameter_reference_expression
           (id)))
       (cardinality_expression
-        (keyword_expression
-          (string)))))
+        (keyword))))
   (parser_rule_statement
     (rule_name_expression
       (id))
@@ -67,8 +64,7 @@ Hello: <a & b & c> 'hello';
         (parameter_reference_expression
           (id)))
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 negation
@@ -86,8 +82,7 @@ Hello: <!!a> 'hello';
         (parameter_reference_expression
           (id)))
       (cardinality_expression
-        (keyword_expression
-          (string)))))
+        (keyword))))
   (parser_rule_statement
     (rule_name_expression
       (id))
@@ -97,8 +92,7 @@ Hello: <!!a> 'hello';
           (parameter_reference_expression
             (id))))
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 atom parameter reference
@@ -114,8 +108,7 @@ Hello: <a> 'hello';
       (parameter_reference_expression
         (id))
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 atom parenthesized condition
@@ -132,8 +125,7 @@ Hello: <(a)> 'hello';
         (parameter_reference_expression
           (id)))
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 atom boolean literal
@@ -148,8 +140,7 @@ Hello: <true> 'hello';
     (conditional_branch_expression
       (boolean_literal)
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
 
 ================================================================================
 complex condition
@@ -175,8 +166,7 @@ Hello: <a & (b | c) & true> 'hello';
           (negation_expression
             (boolean_literal))))
       (cardinality_expression
-        (keyword_expression
-          (string)))))
+        (keyword))))
   (parser_rule_statement
     (rule_name_expression
       (id))
@@ -192,8 +182,7 @@ Hello: <a & (b | c) & true> 'hello';
               (id))))
         (boolean_literal))
       (cardinality_expression
-        (keyword_expression
-          (string)))))
+        (keyword))))
   (parser_rule_statement
     (rule_name_expression
       (id))
@@ -209,8 +198,7 @@ Hello: <a & (b | c) & true> 'hello';
             (id))
           (boolean_literal)))
       (cardinality_expression
-        (keyword_expression
-          (string)))))
+        (keyword))))
   (parser_rule_statement
     (rule_name_expression
       (id))
@@ -227,5 +215,4 @@ Hello: <a & (b | c) & true> 'hello';
                 (id)))))
         (boolean_literal))
       (cardinality_expression
-        (keyword_expression
-          (string))))))
+        (keyword)))))
