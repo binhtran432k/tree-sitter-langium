@@ -1,6 +1,10 @@
 const PREC = Object.freeze({
+  // Definition
   ALTERNATIVES: 1,
+  CONDITIONAL_BRANCH: 2,
   GROUP: 4,
+  // Condition
+  ATOM: 4,
 });
 
 module.exports = grammar({
@@ -60,12 +64,23 @@ module.exports = grammar({
     _definition_expression: ($) =>
       choice(
         $.alternatives_expression,
+        $.conditional_branch_expression,
         $.group_exression,
       ),
     alternatives_expression: ($) =>
       prec.left(
         PREC.ALTERNATIVES,
         seq($._definition_expression, "|", $._definition_expression),
+      ),
+    conditional_branch_expression: ($) =>
+      prec.left(
+        PREC.CONDITIONAL_BRANCH,
+        seq(
+          "<",
+          $._condition_expression,
+          ">",
+          repeat1($._abstract_token_expression),
+        ),
       ),
     group_exression: ($) =>
       prec.left(PREC.GROUP, repeat1($._abstract_token_expression)),
@@ -109,6 +124,19 @@ module.exports = grammar({
 
     _assignable_terminal_expression: ($) =>
       choice($.keyword_expression, $.rule_call_expression),
+
+    _condition_expression: ($) =>
+      choice(
+        $.atom_expression,
+      ),
+    atom_expression: ($) =>
+      prec(
+        PREC.ATOM,
+        choice(
+          $.parameter_reference_expression,
+        ),
+      ),
+    parameter_reference_expression: ($) => field("parameter", $.id),
 
     _feature_name_expression: ($) =>
       choice($.builtin_feature_name, $.primitive_type, $.id),

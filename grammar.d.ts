@@ -14,12 +14,17 @@ interface LangiumGrammarStruct {
 
   _definition_expression: Rule;
   alternatives_expression: Rule;
+  conditional_branch_expression: Rule;
   group_exression: Rule;
 
   _abstract_token_expression: Rule;
   cardinality_expression: Rule;
   assignment_expression: Rule;
   action_expression: Rule;
+
+  _condition_expression: Rule;
+  atom_expression: Rule;
+  parameter_reference_expression: Rule;
 
   _abstract_terminal_expression: Rule;
   keyword_expression: Rule;
