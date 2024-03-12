@@ -128,6 +128,7 @@ module.exports = grammar({
       choice(
         $._keyword_expression,
         $.rule_call_expression,
+        $.parenthesized_element_expression,
       ),
     _keyword_expression: ($) => alias($.string, $.keyword),
     rule_call_expression: ($) =>
@@ -147,6 +148,8 @@ module.exports = grammar({
         optional(seq(field("parameter", $.id), "=")),
         $._condition_expression,
       ),
+    parenthesized_element_expression: ($) =>
+      seq("(", $._definition_expression, ")"),
 
     _assignable_terminal_expression: ($) =>
       choice($._keyword_expression, $.rule_call_expression),

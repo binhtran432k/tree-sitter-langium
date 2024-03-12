@@ -64,3 +64,24 @@ Hello: ID<Hello=Hi|Hey>;
             (disjunction_expression
               (parameter_reference)
               (parameter_reference))))))))
+
+================================================================================
+parenthesized element
+================================================================================
+Hello: 'hello' ('world' '!');
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (keyword))
+      (cardinality_expression
+        (parenthesized_element_expression
+          (group_exression
+            (cardinality_expression
+              (keyword))
+            (cardinality_expression
+              (keyword))))))))
