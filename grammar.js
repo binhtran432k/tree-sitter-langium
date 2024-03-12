@@ -135,6 +135,7 @@ module.exports = grammar({
         $.parenthesized_element_expression,
         $.predicated_keyword_expression,
         $.predicated_rule_call_expression,
+        $.predicated_group_expression,
       ),
     _keyword_expression: ($) => alias($.string, $.keyword),
     rule_call_expression: ($) => $.__rule_call,
@@ -161,6 +162,8 @@ module.exports = grammar({
       seq(choice("=>", "->"), $._keyword_expression),
     predicated_rule_call_expression: ($) =>
       seq(choice("=>", "->"), $.__rule_call),
+    predicated_group_expression: ($) =>
+      seq(choice("=>", "->"), "(", $._definition_expression, ")"),
 
     _assignable_terminal_expression: ($) =>
       choice($._keyword_expression, $.rule_call_expression),

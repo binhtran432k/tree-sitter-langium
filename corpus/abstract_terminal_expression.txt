@@ -125,3 +125,22 @@ Hello: => ID<Hello>;
           (id)
           (named_argument_expression
             (parameter_reference)))))))
+
+================================================================================
+predicated group
+================================================================================
+Hello: => ('world' '!');
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (predicated_group_expression
+          (group_exression
+            (cardinality_expression
+              (keyword))
+            (cardinality_expression
+              (keyword))))))))
