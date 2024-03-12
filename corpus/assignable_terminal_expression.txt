@@ -1,0 +1,86 @@
+================================================================================
+keyword
+================================================================================
+Hello: name='hello';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (id)
+          (keyword))))))
+
+================================================================================
+rule call
+================================================================================
+Hello: name=ID;
+Hello: name=ID<Hello>;
+Hello: name=ID<Hello,Hi>;
+Hello: name=ID<Hello=Hi>;
+Hello: name=ID<Hello=Hi|Hey>;
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (id)
+          (rule_call_expression
+            (id))))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (id)
+          (rule_call_expression
+            (id)
+            (named_argument_expression
+              (parameter_reference)))))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (id)
+          (rule_call_expression
+            (id)
+            (named_argument_expression
+              (parameter_reference))
+            (named_argument_expression
+              (parameter_reference)))))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (id)
+          (rule_call_expression
+            (id)
+            (named_argument_expression
+              (id)
+              (parameter_reference)))))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (assignment_expression
+          (id)
+          (rule_call_expression
+            (id)
+            (named_argument_expression
+              (id)
+              (disjunction_expression
+                (parameter_reference)
+                (parameter_reference)))))))))
