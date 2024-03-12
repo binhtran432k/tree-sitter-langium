@@ -171,6 +171,7 @@ module.exports = grammar({
         $._keyword_expression,
         $.rule_call_expression,
         $.parenthesized_assignable_element_expression,
+        $.cross_reference_expression,
       ),
     parenthesized_assignable_element_expression: ($) =>
       seq("(", $.assignable_alternatives_expression, ")"),
@@ -179,6 +180,16 @@ module.exports = grammar({
         $._assignable_terminal_expression,
         repeat(seq("|", $._assignable_terminal_expression)),
       ),
+    cross_reference_expression: ($) =>
+      seq(
+        "[",
+        field("type", $.id),
+        choice("|", ":"),
+        $._cross_referencable_terminal_expression,
+        "]",
+      ),
+    _cross_referencable_terminal_expression: ($) =>
+      choice($._keyword_expression, $.rule_call_expression),
 
     _condition_expression: ($) =>
       choice(

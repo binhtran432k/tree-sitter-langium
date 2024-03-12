@@ -44,6 +44,8 @@ interface LangiumGrammarStruct {
   _assignable_terminal_expression: Rule;
   parenthesized_assignable_element_expression: Rule;
   assignable_alternatives_expression: Rule;
+  cross_reference_expression: Rule;
+  _cross_referencable_terminal_expression: Rule;
 
   _feature_name_expression: Rule;
 
