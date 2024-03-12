@@ -1,3 +1,7 @@
+const PREC = Object.freeze({
+  GROUP: 4,
+});
+
 module.exports = grammar({
   name: "langium",
 
@@ -54,9 +58,10 @@ module.exports = grammar({
 
     _definition_expression: ($) =>
       choice(
-        prec(4, $.group_exression),
+        $.group_exression,
       ),
-    group_exression: ($) => repeat1($._abstract_token_expression),
+    group_exression: ($) =>
+      prec.left(PREC.GROUP, repeat1($._abstract_token_expression)),
 
     _abstract_token_expression: ($) =>
       choice($.cardinality_expression, $.action_expression),
