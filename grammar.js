@@ -160,6 +160,7 @@ module.exports = grammar({
         choice(
           $.parameter_reference_expression,
           $.parenthesized_condition_expression,
+          $.boolean_literal,
         ),
       ),
     parenthesized_condition_expression: ($) =>
@@ -192,6 +193,7 @@ module.exports = grammar({
       ),
     primitive_type: () =>
       choice("string", "number", "boolean", "Date", "bigint"),
+    boolean_literal: () => choice("true", "false"),
 
     block_comment: () => /\/\*([^*]|\*[^/])*\*?\*\//,
     line_comment: () => /\/\/[^\n\r]*/,

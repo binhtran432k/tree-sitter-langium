@@ -43,6 +43,7 @@ interface LangiumGrammarStruct {
   string: Rule;
   builtin_feature_name: Rule;
   primitive_type: Rule;
+  boolean_literal: Rule;
   block_comment: Rule;
   line_comment: Rule;
 
