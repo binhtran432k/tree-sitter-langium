@@ -79,3 +79,35 @@ Hello: <a & b & c> 'hello';
       (cardinality_expression
         (keyword_expression
           (string))))))
+
+================================================================================
+negation
+================================================================================
+Hello: <!a> 'hello';
+Hello: <!!a> 'hello';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (conditional_branch_expression
+      (negation_expression
+        (atom_expression
+          (parameter_reference_expression
+            (id))))
+      (cardinality_expression
+        (keyword_expression
+          (string)))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (conditional_branch_expression
+      (negation_expression
+        (negation_expression
+          (atom_expression
+            (parameter_reference_expression
+              (id)))))
+      (cardinality_expression
+        (keyword_expression
+          (string))))))

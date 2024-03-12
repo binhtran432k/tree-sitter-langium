@@ -7,6 +7,7 @@ const PREC = Object.freeze({
   // Condition
   DISJUNCTION: 1,
   CONJUNCTION: 2,
+  NEGATION: 3,
   ATOM: 4,
 });
 
@@ -138,6 +139,7 @@ module.exports = grammar({
       choice(
         $.disjunction_expression,
         $.conjunction_expression,
+        $.negation_expression,
         $.atom_expression,
       ),
     disjunction_expression: ($) =>
@@ -150,6 +152,8 @@ module.exports = grammar({
         PREC.CONJUNCTION,
         seq($._condition_expression, "&", $._condition_expression),
       ),
+    negation_expression: ($) =>
+      prec.right(PREC.NEGATION, seq("!", $._condition_expression)),
     atom_expression: ($) =>
       prec(
         PREC.ATOM,
