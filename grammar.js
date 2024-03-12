@@ -50,7 +50,7 @@ module.exports = grammar({
         optional(choice("*", $.returns_expression, $.infers_expression)),
         optional($.hidden_expression),
         ":",
-        $._definition_expression,
+        field("definition", $._definition_expression),
         ";",
       ),
     rule_name_expression: ($) =>
