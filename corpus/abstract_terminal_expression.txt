@@ -100,3 +100,20 @@ Hello: => 'hello';
       (cardinality_expression
         (predicated_keyword_expression
           (keyword))))))
+
+================================================================================
+predicated rule call
+================================================================================
+Hello: => ID<Hello>;
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (group_exression
+      (cardinality_expression
+        (predicated_rule_call_expression
+          (id)
+          (named_argument_expression
+            (parameter_reference)))))))

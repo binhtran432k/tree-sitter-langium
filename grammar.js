@@ -16,6 +16,8 @@ module.exports = grammar({
 
   extras: ($) => [/\s+/, $.block_comment, $.line_comment],
 
+  inline: ($) => [$.__rule_call],
+
   rules: {
     document: ($) =>
       seq(
@@ -130,9 +132,11 @@ module.exports = grammar({
         $.rule_call_expression,
         $.parenthesized_element_expression,
         $.predicated_keyword_expression,
+        $.predicated_rule_call_expression,
       ),
     _keyword_expression: ($) => alias($.string, $.keyword),
-    rule_call_expression: ($) =>
+    rule_call_expression: ($) => $.__rule_call,
+    __rule_call: ($) =>
       seq(
         field("rule", $.id),
         optional(
@@ -153,6 +157,8 @@ module.exports = grammar({
       seq("(", $._definition_expression, ")"),
     predicated_keyword_expression: ($) =>
       seq(choice("=>", "->"), alias($.string, $.keyword)),
+    predicated_rule_call_expression: ($) =>
+      seq(choice("=>", "->"), $.__rule_call),
 
     _assignable_terminal_expression: ($) =>
       choice($._keyword_expression, $.rule_call_expression),
