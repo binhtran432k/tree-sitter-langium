@@ -36,6 +36,7 @@ interface LangiumGrammarStruct {
   rule_call_expression: Rule;
   named_argument_expression: Rule;
   parenthesized_element_expression: Rule;
+  predicated_keyword_expression: Rule;
 
   _assignable_terminal_expression: Rule;
 
