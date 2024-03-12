@@ -166,3 +166,98 @@ Hello: <true> 'hello';
       (cardinality_expression
         (keyword_expression
           (string))))))
+
+================================================================================
+complex condition
+================================================================================
+Hello: <a | b | !!true> 'hello';
+Hello: <a | b & c | true> 'hello';
+Hello: <a & b | c & true> 'hello';
+Hello: <a & (b | c) & true> 'hello';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (conditional_branch_expression
+      (disjunction_expression
+        (disjunction_expression
+          (atom_expression
+            (parameter_reference_expression
+              (id)))
+          (atom_expression
+            (parameter_reference_expression
+              (id))))
+        (negation_expression
+          (negation_expression
+            (atom_expression
+              (boolean_literal)))))
+      (cardinality_expression
+        (keyword_expression
+          (string)))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (conditional_branch_expression
+      (disjunction_expression
+        (disjunction_expression
+          (atom_expression
+            (parameter_reference_expression
+              (id)))
+          (conjunction_expression
+            (atom_expression
+              (parameter_reference_expression
+                (id)))
+            (atom_expression
+              (parameter_reference_expression
+                (id)))))
+        (atom_expression
+          (boolean_literal)))
+      (cardinality_expression
+        (keyword_expression
+          (string)))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (conditional_branch_expression
+      (disjunction_expression
+        (conjunction_expression
+          (atom_expression
+            (parameter_reference_expression
+              (id)))
+          (atom_expression
+            (parameter_reference_expression
+              (id))))
+        (conjunction_expression
+          (atom_expression
+            (parameter_reference_expression
+              (id)))
+          (atom_expression
+            (boolean_literal))))
+      (cardinality_expression
+        (keyword_expression
+          (string)))))
+  (parser_rule_statement
+    (rule_name_expression
+      (id))
+    (conditional_branch_expression
+      (conjunction_expression
+        (conjunction_expression
+          (atom_expression
+            (parameter_reference_expression
+              (id)))
+          (atom_expression
+            (parenthesized_condition_expression
+              (disjunction_expression
+                (atom_expression
+                  (parameter_reference_expression
+                    (id)))
+                (atom_expression
+                  (parameter_reference_expression
+                    (id)))))))
+        (atom_expression
+          (boolean_literal)))
+      (cardinality_expression
+        (keyword_expression
+          (string))))))
