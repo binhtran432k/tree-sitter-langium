@@ -91,3 +91,31 @@ terminal ID: (?<!ID);
     (parenthesized_terminal_element
       (terminal_rule_call
         (id)))))
+
+================================================================================
+negated token
+================================================================================
+terminal ID: !ID;
+terminal ID: 'hello' !ID;
+terminal ID: !!ID;
+--------------------------------------------------------------------------------
+
+(document
+  (terminal_rule
+    (id)
+    (negated_token
+      (terminal_rule_call
+        (id))))
+  (terminal_rule
+    (id)
+    (terminal_group
+      (keyword)
+      (negated_token
+        (terminal_rule_call
+          (id)))))
+  (terminal_rule
+    (id)
+    (negated_token
+      (negated_token
+        (terminal_rule_call
+          (id))))))

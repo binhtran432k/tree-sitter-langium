@@ -61,6 +61,7 @@ interface LangiumGrammarStruct {
   character_range: Rule;
   terminal_rule_call: Rule;
   parenthesized_terminal_element: Rule;
+  negated_token: Rule;
 
   id: Rule;
   string: Rule;
