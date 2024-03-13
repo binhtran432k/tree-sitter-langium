@@ -147,3 +147,24 @@ terminal ID: ->->ID;
       (until_token
         (terminal_rule_call
           (id))))))
+
+================================================================================
+wildcard
+================================================================================
+terminal ID: .?;
+terminal ID: 'a'..'z'+ .;
+--------------------------------------------------------------------------------
+
+(document
+  (terminal_rule
+    (id)
+    (terminal_cardinality
+      (wildcard)))
+  (terminal_rule
+    (id)
+    (terminal_group
+      (terminal_cardinality
+        (character_range
+          (keyword)
+          (keyword)))
+      (wildcard))))

@@ -70,6 +70,7 @@ interface LangiumGrammarStruct {
   regex_pattern: Rule;
   regex_flags: Rule;
   builtin_feature_name: Rule;
+  wildcard: Rule;
   primitive_type: Rule;
   boolean_literal: Rule;
   eof: Rule;

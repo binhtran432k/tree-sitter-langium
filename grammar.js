@@ -224,6 +224,7 @@ module.exports = grammar({
         $.negated_token,
         $.until_token,
         $.regex,
+        $.wildcard,
       ),
     character_range: ($) => seq($._keyword, "..", $._keyword),
     terminal_rule_call: ($) => field("rule", $.id),
@@ -282,6 +283,7 @@ module.exports = grammar({
         "infers",
         "with",
       ),
+    wildcard: () => ".",
     primitive_type: () =>
       choice("string", "number", "boolean", "Date", "bigint"),
     boolean_literal: () => choice("true", "false"),
