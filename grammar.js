@@ -9,6 +9,8 @@ const PREC = Object.freeze({
   CONJUNCTION: 2,
   NEGATION: 3,
   ATOM: 4,
+  // Terminal Definition
+  TERMINAL_GROUP: 2,
 });
 
 module.exports = grammar({
@@ -29,16 +31,19 @@ module.exports = grammar({
       ),
 
     grammar_statement: ($) =>
-      seq(
-        "grammar",
-        field("name", $.id),
-        optional($.with_expression),
-        optional($.hidden_expression),
+      prec.right(
+        seq(
+          "grammar",
+          field("name", $.id),
+          optional($.with_expression),
+          optional($.hidden_expression),
+        ),
       ),
     with_expression: ($) => seq("with", $._ids),
     hidden_expression: ($) => seq("hidden", "(", optional($._ids), ")"),
 
-    _abstract_rule_statement: ($) => $.parser_rule_statement,
+    _abstract_rule_statement: ($) =>
+      choice($.parser_rule_statement, $.terminal_rule_statement),
 
     import_statement: ($) =>
       seq("import", field("path", $.string), optional(";")),
@@ -223,11 +228,56 @@ module.exports = grammar({
       seq("(", $._condition_expression, ")"),
     _parameter_reference_expression: ($) => alias($.id, $.parameter_reference),
 
+    terminal_rule_statement: ($) =>
+      seq(
+        optional("hidden"),
+        "terminal",
+        choice(
+          seq("fragment", field("name", $.id)),
+          seq(field("name", $.id), optional($.returns_expression)),
+        ),
+        ":",
+        field("definition", $._terminal_definition_expression),
+        ";",
+      ),
+
+    _terminal_definition_expression: ($) => choice($.terminal_group_exression),
+    terminal_group_exression: ($) =>
+      prec.left(PREC.TERMINAL_GROUP, repeat1($.terminal_token_expression)),
+    terminal_token_expression: ($) =>
+      seq(
+        $._terminal_token_element_expression,
+        optional(choice("?", "*", "+")),
+      ),
+
+    _terminal_token_element_expression: ($) => choice($.regex),
+
     _feature_name_expression: ($) =>
       choice($.builtin_feature_name, $.primitive_type, $.id),
 
     id: () => /\^?[_a-zA-Z][\w_]*/,
     string: () => /"(\\.|[^"\\])*"|'(\\.|[^'\\])*'/,
+    regex: ($) =>
+      seq(
+        "/",
+        field("pattern", $.regex_pattern),
+        token.immediate(prec(1, "/")),
+        optional(field("flags", $.regex_flags)),
+      ),
+    regex_pattern: () =>
+      token.immediate(
+        prec(
+          -1,
+          repeat1(
+            choice(
+              seq("[", repeat(choice(/[^\r\n\]\\]/, /\\./)), "]"),
+              /\\./,
+              /[^\r\n\[/\\]/,
+            ),
+          ),
+        ),
+      ),
+    regex_flags: () => token.immediate(/[a-z]+/),
     builtin_feature_name: () =>
       choice(
         "current",

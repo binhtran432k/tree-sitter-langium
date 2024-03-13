@@ -8,6 +8,7 @@
   "returns"
   "infer"
   "current"
+  "terminal"
 ] @keyword
 
 (id) @variable
@@ -52,11 +53,16 @@
   "}"
   "<"
   ">"
+  "/"
 ] @punctuation.bracket
 
 (builtin_feature_name) @keyword
 
 (boolean_literal) @boolean
+
+(regex_pattern) @string.regexp
+
+(regex_flags) @string.special
 
 (parameter_reference) @variable.parameter
 
