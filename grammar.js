@@ -222,6 +222,7 @@ module.exports = grammar({
         $.terminal_rule_call,
         $.parenthesized_terminal_element,
         $.negated_token,
+        $.until_token,
         $.regex,
       ),
     character_range: ($) => seq($._keyword, "..", $._keyword),
@@ -234,6 +235,7 @@ module.exports = grammar({
         ")",
       ),
     negated_token: ($) => prec.right(seq("!", $._terminal_token_element)),
+    until_token: ($) => prec.right(seq("->", $._terminal_token_element)),
 
     _feature_name: ($) =>
       choice($.builtin_feature_name, $.primitive_type, $.id),

@@ -119,3 +119,31 @@ terminal ID: !!ID;
       (negated_token
         (terminal_rule_call
           (id))))))
+
+================================================================================
+until token
+================================================================================
+terminal ID: ->ID;
+terminal ID: 'hello' ->ID;
+terminal ID: ->->ID;
+--------------------------------------------------------------------------------
+
+(document
+  (terminal_rule
+    (id)
+    (until_token
+      (terminal_rule_call
+        (id))))
+  (terminal_rule
+    (id)
+    (terminal_group
+      (keyword)
+      (until_token
+        (terminal_rule_call
+          (id)))))
+  (terminal_rule
+    (id)
+    (until_token
+      (until_token
+        (terminal_rule_call
+          (id))))))
