@@ -1,15 +1,17 @@
 # tree-sitter-langium
 
-To install dependencies:
+[![CI][ci]](https://github.com/tree-sitter/tree-sitter-python/actions/workflows/ci.yml)
+[![discord][discord]](https://discord.gg/w7nTvsVJhm)
+[![matrix][matrix]](https://matrix.to/#/#tree-sitter-chat:matrix.org)
 
-```bash
-bun install
-```
+Langium grammar for [tree-sitter][].
 
-To run:
+[tree-sitter]: https://github.com/tree-sitter/tree-sitter
 
-```bash
-bun run index.ts
-```
+## References
 
-This project was created using `bun init` in bun v1.0.30. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+- [Langium Grammar](https://langium.org/docs/grammar-language/)
+
+[ci]: https://img.shields.io/github/actions/workflow/status/tree-sitter/tree-sitter-langium/ci.yml?logo=github&label=CI
+[discord]: https://img.shields.io/discord/1063097320771698699?logo=discord&label=discord
+[matrix]: https://img.shields.io/matrix/tree-sitter-chat%3Amatrix.org?logo=matrix&label=matrix
