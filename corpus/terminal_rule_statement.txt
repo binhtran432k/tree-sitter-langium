@@ -128,3 +128,30 @@ terminal ID: /[a-z]/+;
       (terminal_token_expression
         (regex
           (regex_pattern))))))
+
+================================================================================
+alternatives
+================================================================================
+terminal ID: /[a-z]/ | /[A-Z]/ | /[0-9]/ /-_/;
+--------------------------------------------------------------------------------
+
+(document
+  (terminal_rule_statement
+    (id)
+    (terminal_alternatives_expression
+      (terminal_alternatives_expression
+        (terminal_group_exression
+          (terminal_token_expression
+            (regex
+              (regex_pattern))))
+        (terminal_group_exression
+          (terminal_token_expression
+            (regex
+              (regex_pattern)))))
+      (terminal_group_exression
+        (terminal_token_expression
+          (regex
+            (regex_pattern)))
+        (terminal_token_expression
+          (regex
+            (regex_pattern)))))))

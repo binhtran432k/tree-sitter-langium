@@ -10,6 +10,7 @@ const PREC = Object.freeze({
   NEGATION: 3,
   ATOM: 4,
   // Terminal Definition
+  TERMINAL_ALTERNATIVES: 1,
   TERMINAL_GROUP: 2,
 });
 
@@ -241,7 +242,17 @@ module.exports = grammar({
         ";",
       ),
 
-    _terminal_definition_expression: ($) => choice($.terminal_group_exression),
+    _terminal_definition_expression: ($) =>
+      choice($.terminal_alternatives_expression, $.terminal_group_exression),
+    terminal_alternatives_expression: ($) =>
+      prec.left(
+        PREC.TERMINAL_ALTERNATIVES,
+        seq(
+          $._terminal_definition_expression,
+          "|",
+          $._terminal_definition_expression,
+        ),
+      ),
     terminal_group_exression: ($) =>
       prec.left(PREC.TERMINAL_GROUP, repeat1($.terminal_token_expression)),
     terminal_token_expression: ($) =>
