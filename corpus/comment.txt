@@ -10,9 +10,8 @@ entry Hello: 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (keyword)))))
+    (cardinality_expression
+      (keyword))))
 
 ================================================================================
 block comment single line
@@ -26,9 +25,8 @@ entry Hello: 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (keyword)))))
+    (cardinality_expression
+      (keyword))))
 
 ================================================================================
 block comment multiple line
@@ -44,6 +42,5 @@ entry Hello: 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (keyword)))))
+    (cardinality_expression
+      (keyword))))

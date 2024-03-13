@@ -8,9 +8,8 @@ Hello: { World };
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (action_expression
-        (id)))))
+    (action_expression
+      (id))))
 
 ================================================================================
 infer
@@ -22,10 +21,9 @@ Hello: { infer World };
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (action_expression
-        (infer_expression
-          (id))))))
+    (action_expression
+      (infer_expression
+        (id)))))
 
 ================================================================================
 assign current
@@ -39,24 +37,21 @@ Hello: { World.grammar = current };
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (action_expression
-        (id)
-        (id))))
+    (action_expression
+      (id)
+      (id)))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (action_expression
-        (id)
-        (primitive_type))))
+    (action_expression
+      (id)
+      (primitive_type)))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (action_expression
-        (id)
-        (builtin_feature_name)))))
+    (action_expression
+      (id)
+      (builtin_feature_name))))
 
 ================================================================================
 assign plus current
@@ -68,7 +63,6 @@ Hello: { World.id += current };
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (action_expression
-        (id)
-        (id)))))
+    (action_expression
+      (id)
+      (id))))

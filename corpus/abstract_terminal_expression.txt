@@ -8,9 +8,8 @@ Hello: 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (keyword)))))
+    (cardinality_expression
+      (keyword))))
 
 ================================================================================
 rule call
@@ -26,52 +25,47 @@ Hello: ID<Hello=Hi|Hey>;
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (rule_call_expression
-          (id)))))
+    (cardinality_expression
+      (rule_call_expression
+        (id))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (rule_call_expression
-          (id)
-          (named_argument_expression
-            (parameter_reference))))))
+    (cardinality_expression
+      (rule_call_expression
+        (id)
+        (named_argument_expression
+          (parameter_reference)))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (rule_call_expression
-          (id)
-          (named_argument_expression
-            (parameter_reference))
-          (named_argument_expression
-            (parameter_reference))))))
+    (cardinality_expression
+      (rule_call_expression
+        (id)
+        (named_argument_expression
+          (parameter_reference))
+        (named_argument_expression
+          (parameter_reference)))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (rule_call_expression
+    (cardinality_expression
+      (rule_call_expression
+        (id)
+        (named_argument_expression
           (id)
-          (named_argument_expression
-            (id)
-            (parameter_reference))))))
+          (parameter_reference)))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (rule_call_expression
+    (cardinality_expression
+      (rule_call_expression
+        (id)
+        (named_argument_expression
           (id)
-          (named_argument_expression
-            (id)
-            (disjunction_expression
-              (parameter_reference)
-              (parameter_reference))))))))
+          (disjunction_expression
+            (parameter_reference)
+            (parameter_reference)))))))
 
 ================================================================================
 parenthesized element
@@ -104,10 +98,9 @@ Hello: => 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (predicated_keyword_expression
-          (keyword))))))
+    (cardinality_expression
+      (predicated_keyword_expression
+        (keyword)))))
 
 ================================================================================
 predicated rule call
@@ -119,12 +112,11 @@ Hello: => ID<Hello>;
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (predicated_rule_call_expression
-          (id)
-          (named_argument_expression
-            (parameter_reference)))))))
+    (cardinality_expression
+      (predicated_rule_call_expression
+        (id)
+        (named_argument_expression
+          (parameter_reference))))))
 
 ================================================================================
 predicated group
@@ -136,14 +128,13 @@ Hello: => ('world' '!');
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (predicated_group_expression
-          (group_exression
-            (cardinality_expression
-              (keyword))
-            (cardinality_expression
-              (keyword))))))))
+    (cardinality_expression
+      (predicated_group_expression
+        (group_exression
+          (cardinality_expression
+            (keyword))
+          (cardinality_expression
+            (keyword)))))))
 
 ================================================================================
 predicated group

@@ -8,11 +8,10 @@ Hello: name='hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (assignment_expression
-          (id)
-          (keyword))))))
+    (cardinality_expression
+      (assignment_expression
+        (id)
+        (keyword)))))
 
 ================================================================================
 rule call
@@ -28,62 +27,57 @@ Hello: name=ID<Hello=Hi|Hey>;
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (assignment_expression
-          (id)
-          (rule_call_expression
-            (id))))))
+    (cardinality_expression
+      (assignment_expression
+        (id)
+        (rule_call_expression
+          (id)))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (assignment_expression
+    (cardinality_expression
+      (assignment_expression
+        (id)
+        (rule_call_expression
           (id)
-          (rule_call_expression
-            (id)
-            (named_argument_expression
-              (parameter_reference)))))))
+          (named_argument_expression
+            (parameter_reference))))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (assignment_expression
+    (cardinality_expression
+      (assignment_expression
+        (id)
+        (rule_call_expression
           (id)
-          (rule_call_expression
-            (id)
-            (named_argument_expression
-              (parameter_reference))
-            (named_argument_expression
-              (parameter_reference)))))))
+          (named_argument_expression
+            (parameter_reference))
+          (named_argument_expression
+            (parameter_reference))))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (assignment_expression
+    (cardinality_expression
+      (assignment_expression
+        (id)
+        (rule_call_expression
           (id)
-          (rule_call_expression
+          (named_argument_expression
             (id)
-            (named_argument_expression
-              (id)
-              (parameter_reference)))))))
+            (parameter_reference))))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (assignment_expression
+    (cardinality_expression
+      (assignment_expression
+        (id)
+        (rule_call_expression
           (id)
-          (rule_call_expression
+          (named_argument_expression
             (id)
-            (named_argument_expression
-              (id)
-              (disjunction_expression
-                (parameter_reference)
-                (parameter_reference)))))))))
+            (disjunction_expression
+              (parameter_reference)
+              (parameter_reference))))))))
 
 ================================================================================
 parenthesized assignable element
@@ -96,25 +90,23 @@ Hello: name=('hello' | 'world' | '!!!');
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (assignment_expression
-          (id)
-          (parenthesized_assignable_element_expression
-            (assignable_alternatives_expression
-              (keyword)))))))
+    (cardinality_expression
+      (assignment_expression
+        (id)
+        (parenthesized_assignable_element_expression
+          (assignable_alternatives_expression
+            (keyword))))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (assignment_expression
-          (id)
-          (parenthesized_assignable_element_expression
-            (assignable_alternatives_expression
-              (keyword)
-              (keyword)
-              (keyword))))))))
+    (cardinality_expression
+      (assignment_expression
+        (id)
+        (parenthesized_assignable_element_expression
+          (assignable_alternatives_expression
+            (keyword)
+            (keyword)
+            (keyword)))))))
 
 ================================================================================
 cross reference
@@ -128,32 +120,29 @@ Hello: type=[World|ID];
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (assignment_expression
-          (builtin_feature_name)
-          (cross_reference_expression
-            (id)
-            (keyword))))))
+    (cardinality_expression
+      (assignment_expression
+        (builtin_feature_name)
+        (cross_reference_expression
+          (id)
+          (keyword)))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (assignment_expression
-          (builtin_feature_name)
-          (cross_reference_expression
-            (id)
-            (rule_call_expression
-              (id)))))))
+    (cardinality_expression
+      (assignment_expression
+        (builtin_feature_name)
+        (cross_reference_expression
+          (id)
+          (rule_call_expression
+            (id))))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (assignment_expression
-          (builtin_feature_name)
-          (cross_reference_expression
-            (id)
-            (rule_call_expression
-              (id))))))))
+    (cardinality_expression
+      (assignment_expression
+        (builtin_feature_name)
+        (cross_reference_expression
+          (id)
+          (rule_call_expression
+            (id)))))))

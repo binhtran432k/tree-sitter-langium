@@ -8,9 +8,8 @@ Hello: 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (keyword)))))
+    (cardinality_expression
+      (keyword))))
 
 ================================================================================
 group multiple
@@ -41,12 +40,10 @@ Hello: 'hello' | 'world';
     (rule_name_expression
       (id))
     (alternatives_expression
-      (group_exression
-        (cardinality_expression
-          (keyword)))
-      (group_exression
-        (cardinality_expression
-          (keyword))))))
+      (cardinality_expression
+        (keyword))
+      (cardinality_expression
+        (keyword)))))
 
 ================================================================================
 alternatives multiple
@@ -60,17 +57,15 @@ Hello: 'hello' | ',' 'world' | '!!!';
       (id))
     (alternatives_expression
       (alternatives_expression
-        (group_exression
-          (cardinality_expression
-            (keyword)))
+        (cardinality_expression
+          (keyword))
         (group_exression
           (cardinality_expression
             (keyword))
           (cardinality_expression
             (keyword))))
-      (group_exression
-        (cardinality_expression
-          (keyword))))))
+      (cardinality_expression
+        (keyword)))))
 
 ================================================================================
 conditional branch
@@ -115,12 +110,10 @@ Hello: 'hello' & 'world';
     (rule_name_expression
       (id))
     (unordered_group_expression
-      (group_exression
-        (cardinality_expression
-          (keyword)))
-      (group_exression
-        (cardinality_expression
-          (keyword))))))
+      (cardinality_expression
+        (keyword))
+      (cardinality_expression
+        (keyword)))))
 
 ================================================================================
 unordered group multiple
@@ -134,17 +127,15 @@ Hello: 'hello' & ',' 'world' & '!!!';
       (id))
     (unordered_group_expression
       (unordered_group_expression
-        (group_exression
-          (cardinality_expression
-            (keyword)))
+        (cardinality_expression
+          (keyword))
         (group_exression
           (cardinality_expression
             (keyword))
           (cardinality_expression
             (keyword))))
-      (group_exression
-        (cardinality_expression
-          (keyword))))))
+      (cardinality_expression
+        (keyword)))))
 
 ================================================================================
 complex definition
@@ -159,34 +150,26 @@ Hello: 'hello' & ',' | 'world' & '!!!';
       (id))
     (alternatives_expression
       (alternatives_expression
-        (group_exression
-          (cardinality_expression
-            (keyword)))
-        (unordered_group_expression
-          (group_exression
-            (cardinality_expression
-              (keyword)))
-          (group_exression
-            (cardinality_expression
-              (keyword)))))
-      (group_exression
         (cardinality_expression
-          (keyword)))))
+          (keyword))
+        (unordered_group_expression
+          (cardinality_expression
+            (keyword))
+          (cardinality_expression
+            (keyword))))
+      (cardinality_expression
+        (keyword))))
   (parser_rule_statement
     (rule_name_expression
       (id))
     (alternatives_expression
       (unordered_group_expression
-        (group_exression
-          (cardinality_expression
-            (keyword)))
-        (group_exression
-          (cardinality_expression
-            (keyword))))
+        (cardinality_expression
+          (keyword))
+        (cardinality_expression
+          (keyword)))
       (unordered_group_expression
-        (group_exression
-          (cardinality_expression
-            (keyword)))
-        (group_exression
-          (cardinality_expression
-            (keyword)))))))
+        (cardinality_expression
+          (keyword))
+        (cardinality_expression
+          (keyword))))))

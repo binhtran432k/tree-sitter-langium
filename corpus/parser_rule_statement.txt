@@ -8,9 +8,8 @@ entry Hello: 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (keyword)))))
+    (cardinality_expression
+      (keyword))))
 
 ================================================================================
 fragment
@@ -22,9 +21,8 @@ fragment Fragment: 'frag';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (keyword)))))
+    (cardinality_expression
+      (keyword))))
 
 ================================================================================
 wildcard
@@ -36,9 +34,8 @@ Hello*: 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (keyword)))))
+    (cardinality_expression
+      (keyword))))
 
 ================================================================================
 parameters
@@ -53,18 +50,16 @@ Program<Parameter1, Parameter2>: 'hello';
       (id)
       (parameters
         (id)))
-    (group_exression
-      (cardinality_expression
-        (keyword))))
+    (cardinality_expression
+      (keyword)))
   (parser_rule_statement
     (rule_name_expression
       (id)
       (parameters
         (id)
         (id)))
-    (group_exression
-      (cardinality_expression
-        (keyword)))))
+    (cardinality_expression
+      (keyword))))
 
 ================================================================================
 returns
@@ -79,17 +74,15 @@ HelloOjbect returns Object: 'object';
       (id))
     (returns_expression
       (primitive_type))
-    (group_exression
-      (cardinality_expression
-        (keyword))))
+    (cardinality_expression
+      (keyword)))
   (parser_rule_statement
     (rule_name_expression
       (id))
     (returns_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (keyword)))))
+    (cardinality_expression
+      (keyword))))
 
 ================================================================================
 infers
@@ -103,9 +96,8 @@ Hello infers Object: 'hello';
       (id))
     (infers_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (keyword)))))
+    (cardinality_expression
+      (keyword))))
 
 ================================================================================
 hidden
@@ -120,18 +112,16 @@ Hello hidden (Hidden1, Hidden2): 'hello';
       (id))
     (hidden_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (keyword))))
+    (cardinality_expression
+      (keyword)))
   (parser_rule_statement
     (rule_name_expression
       (id))
     (hidden_expression
       (id)
       (id))
-    (group_exression
-      (cardinality_expression
-        (keyword)))))
+    (cardinality_expression
+      (keyword))))
 
 ================================================================================
 cardinality
@@ -145,21 +135,18 @@ Hello: 'hello'*;
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (assignment_expression
-          (id)
-          (rule_call_expression
-            (id))))))
+    (cardinality_expression
+      (assignment_expression
+        (id)
+        (rule_call_expression
+          (id)))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (keyword))))
+    (cardinality_expression
+      (keyword)))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (group_exression
-      (cardinality_expression
-        (keyword)))))
+    (cardinality_expression
+      (keyword))))
