@@ -1,0 +1,76 @@
+================================================================================
+simple
+================================================================================
+interface Object {}
+interface Object {};
+--------------------------------------------------------------------------------
+
+(document
+  (interface
+    (id))
+  (interface
+    (id)))
+
+================================================================================
+extends
+================================================================================
+interface Object extends Parent {}
+interface Object extends Parent, Parent2 {}
+--------------------------------------------------------------------------------
+
+(document
+  (interface
+    (id)
+    (extends
+      (super_types
+        (id))))
+  (interface
+    (id)
+    (extends
+      (super_types
+        (id)
+        (id)))))
+
+================================================================================
+type attribute
+================================================================================
+interface Hello { hello: string }
+interface Hello {
+  hello: string
+  world: string
+}
+interface Hello { hello?: string }
+interface Hello { hello: string; }
+interface Hello { hello: string = 'hello world'; }
+--------------------------------------------------------------------------------
+
+(document
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (primitive_type)))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (primitive_type))
+    (type_attribute
+      (id)
+      (primitive_type)))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (primitive_type)))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (primitive_type)))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (primitive_type)
+      (string))))

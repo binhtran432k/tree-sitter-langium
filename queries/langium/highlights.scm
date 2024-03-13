@@ -1,5 +1,7 @@
 [
   "grammar"
+  "interface"
+  "extends"
   "with"
   "hidden"
   "entry"
@@ -63,6 +65,8 @@
   "/"
 ] @punctuation.bracket
 
+(primitive_type) @type.builtin
+
 (builtin_feature_name) @keyword
 
 (boolean) @boolean
@@ -81,3 +85,6 @@
 
 (assignment
   feature: (id) @property)
+
+(returns
+  type: (id) @type)

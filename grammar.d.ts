@@ -4,6 +4,18 @@ interface LangiumGrammarStruct {
   with: Rule;
   hidden: Rule;
   import: Rule;
+  interface: Rule;
+  extends: Rule;
+  type_attribute: Rule;
+
+  _type_definition: Rule;
+  union_type: Rule;
+  array_type: Rule;
+  reference_type: Rule;
+  group_type: Rule;
+
+  _value_literal: Rule;
+  array: Rule;
 
   _abstract_rule: Rule;
   parser_rule: Rule;
@@ -66,6 +78,7 @@ interface LangiumGrammarStruct {
 
   id: Rule;
   string: Rule;
+  number: Rule;
   regex: Rule;
   regex_pattern: Rule;
   regex_flags: Rule;
@@ -80,6 +93,7 @@ interface LangiumGrammarStruct {
   _ids: Rule;
 
   // Aliases
+  super_types?: Rule;
   parameters?: Rule;
   keyword?: Rule;
   parameter_reference?: Rule;

@@ -1,0 +1,151 @@
+================================================================================
+union type
+================================================================================
+interface Hello { hello: string | number }
+interface Hello { hello: string | number | ID }
+--------------------------------------------------------------------------------
+
+(document
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (union_type
+        (primitive_type)
+        (primitive_type))))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (union_type
+        (union_type
+          (primitive_type)
+          (primitive_type))
+        (id)))))
+
+================================================================================
+array type
+================================================================================
+interface Hello { hello: string[] }
+interface Hello { hello: string[] | number }
+interface Hello { hello: string[][] }
+--------------------------------------------------------------------------------
+
+(document
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (array_type
+        (primitive_type))))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (union_type
+        (array_type
+          (primitive_type))
+        (primitive_type))))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (array_type
+        (array_type
+          (primitive_type))))))
+
+================================================================================
+reference type
+================================================================================
+interface Hello { hello: @string }
+interface Hello { hello: @string[] }
+interface Hello { hello: @string|number }
+--------------------------------------------------------------------------------
+
+(document
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (reference_type
+        (primitive_type))))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (array_type
+        (reference_type
+          (primitive_type)))))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (union_type
+        (reference_type
+          (primitive_type))
+        (primitive_type)))))
+
+================================================================================
+group type
+================================================================================
+interface Hello { hello: (string) }
+interface Hello { hello: (string[]) }
+interface Hello { hello: (string|number) }
+interface Hello { hello: (@string[]) }
+--------------------------------------------------------------------------------
+
+(document
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (group_type
+        (primitive_type))))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (group_type
+        (array_type
+          (primitive_type)))))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (group_type
+        (union_type
+          (primitive_type)
+          (primitive_type)))))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (group_type
+        (array_type
+          (reference_type
+            (primitive_type)))))))
+
+================================================================================
+simple type
+================================================================================
+interface Hello { hello: string }
+interface Hello { hello: ID }
+interface Hello { hello: 'world' }
+--------------------------------------------------------------------------------
+
+(document
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (primitive_type)))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (id)))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (string))))

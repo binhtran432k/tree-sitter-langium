@@ -12,6 +12,11 @@ const PREC = Object.freeze({
   // Terminal Definition
   TERMINAL_ALTERNATIVES: 1,
   TERMINAL_GROUP: 2,
+  // Type Definition
+  UNION_TYPE: 1,
+  ARRAY_TYPE: 2,
+  REFERENCE_TYPE: 3,
+  SIMPLE_TYPE: 4,
 });
 
 module.exports = grammar({
@@ -25,7 +30,11 @@ module.exports = grammar({
 
   rules: {
     document: ($) =>
-      seq(optional($.grammar), repeat($.import), repeat1($._abstract_rule)),
+      seq(
+        optional($.grammar),
+        repeat($.import),
+        repeat1(choice($._abstract_rule, $.interface)),
+      ),
 
     grammar: ($) =>
       prec.right(
@@ -38,6 +47,57 @@ module.exports = grammar({
       ),
     with: ($) => seq("with", $._ids),
     hidden: ($) => seq("hidden", "(", optional($._ids), ")"),
+
+    interface: ($) =>
+      seq(
+        "interface",
+        field("name", $.id),
+        optional($.extends),
+        "{",
+        repeat($.type_attribute),
+        "}",
+        optional(";"),
+      ),
+    extends: ($) => seq("extends", alias($._ids, $.super_types)),
+    type_attribute: ($) =>
+      seq(
+        field("name", $._feature_name),
+        optional("?"),
+        ":",
+        field("type", $._type_definition),
+        optional(seq("=", field("value", $._value_literal))),
+        optional(";"),
+      ),
+
+    _type_definition: ($) =>
+      choice(
+        $.union_type,
+        $.array_type,
+        $.reference_type,
+        $.group_type,
+        choice($.id, $.primitive_type, $.string),
+      ),
+    union_type: ($) =>
+      prec.left(
+        PREC.UNION_TYPE,
+        seq($._type_definition, "|", $._type_definition),
+      ),
+    array_type: ($) =>
+      prec.left(PREC.ARRAY_TYPE, seq($._type_definition, "[", "]")),
+    reference_type: ($) =>
+      prec.right(PREC.REFERENCE_TYPE, seq("@", $._type_definition)),
+    group_type: ($) =>
+      prec(PREC.SIMPLE_TYPE, seq("(", $._type_definition, ")")),
+
+    _value_literal: ($) => choice($.string, $.number, $.boolean, $.array),
+    array: ($) =>
+      seq(
+        "[",
+        optional(
+          prec.left(seq($._value_literal, repeat(seq(",", $._value_literal)))),
+        ),
+        "]",
+      ),
 
     _abstract_rule: ($) => choice($.parser_rule, $.terminal_rule),
 
@@ -176,11 +236,7 @@ module.exports = grammar({
     _atom: ($) =>
       prec(
         PREC.ATOM,
-        choice(
-          $._parameter_reference,
-          $.parenthesized_condition,
-          $.boolean,
-        ),
+        choice($._parameter_reference, $.parenthesized_condition, $.boolean),
       ),
     parenthesized_condition: ($) => seq("(", $._condition, ")"),
     _parameter_reference: ($) => alias($.id, $.parameter_reference),
@@ -243,6 +299,7 @@ module.exports = grammar({
 
     id: () => /\^?[_a-zA-Z][\w_]*/,
     string: () => /"(\\.|[^"\\])*"|'(\\.|[^'\\])*'/,
+    number: () => /NaN|-?((\d*\.\d+|\d+)([Ee][+-]?\d+)?|Infinity)/,
     regex: ($) =>
       seq(
         "/",

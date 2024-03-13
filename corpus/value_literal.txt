@@ -1,0 +1,98 @@
+================================================================================
+string
+================================================================================
+interface Hello { hello: string = 'hello' }
+interface Hello { hello: string = "hello" }
+--------------------------------------------------------------------------------
+
+(document
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (primitive_type)
+      (string)))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (primitive_type)
+      (string))))
+
+================================================================================
+number
+================================================================================
+interface Hello { hello: number = 100 }
+interface Hello { hello: number = 100.0 }
+--------------------------------------------------------------------------------
+
+(document
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (primitive_type)
+      (number)))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (primitive_type)
+      (number))))
+
+================================================================================
+boolean
+================================================================================
+interface Hello { hello: boolean = true }
+interface Hello { hello: boolean = false }
+--------------------------------------------------------------------------------
+
+(document
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (primitive_type)
+      (boolean)))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (primitive_type)
+      (boolean))))
+
+================================================================================
+array
+================================================================================
+interface Hello { hello: string[] = [] }
+interface Hello { hello: string[] = ['hello'] }
+interface Hello { hello: string[] = ['hello', [1, 2]] }
+--------------------------------------------------------------------------------
+
+(document
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (array_type
+        (primitive_type))
+      (array)))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (array_type
+        (primitive_type))
+      (array
+        (string))))
+  (interface
+    (id)
+    (type_attribute
+      (id)
+      (array_type
+        (primitive_type))
+      (array
+        (string)
+        (array
+          (number)
+          (number))))))
