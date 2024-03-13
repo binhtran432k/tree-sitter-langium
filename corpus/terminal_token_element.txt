@@ -46,3 +46,48 @@ terminal ID: ID;
     (id)
     (terminal_rule_call
       (id))))
+
+================================================================================
+parenthesized terminal element
+================================================================================
+terminal ID: (ID);
+terminal ID: ('hello' ID);
+terminal ID: (?=ID);
+terminal ID: (?!ID);
+terminal ID: (?<=ID);
+terminal ID: (?<!ID);
+--------------------------------------------------------------------------------
+
+(document
+  (terminal_rule
+    (id)
+    (parenthesized_terminal_element
+      (terminal_rule_call
+        (id))))
+  (terminal_rule
+    (id)
+    (parenthesized_terminal_element
+      (terminal_group
+        (keyword)
+        (terminal_rule_call
+          (id)))))
+  (terminal_rule
+    (id)
+    (parenthesized_terminal_element
+      (terminal_rule_call
+        (id))))
+  (terminal_rule
+    (id)
+    (parenthesized_terminal_element
+      (terminal_rule_call
+        (id))))
+  (terminal_rule
+    (id)
+    (parenthesized_terminal_element
+      (terminal_rule_call
+        (id))))
+  (terminal_rule
+    (id)
+    (parenthesized_terminal_element
+      (terminal_rule_call
+        (id)))))

@@ -216,9 +216,22 @@ module.exports = grammar({
       seq($._terminal_token_element, choice("?", "*", "+")),
 
     _terminal_token_element: ($) =>
-      choice($._keyword, $.character_range, $.terminal_rule_call, $.regex),
+      choice(
+        $._keyword,
+        $.character_range,
+        $.terminal_rule_call,
+        $.parenthesized_terminal_element,
+        $.regex,
+      ),
     character_range: ($) => seq($._keyword, "..", $._keyword),
     terminal_rule_call: ($) => field("rule", $.id),
+    parenthesized_terminal_element: ($) =>
+      seq(
+        "(",
+        optional(choice("?=", "?!", "?<=", "?<!")),
+        $._terminal_definition,
+        ")",
+      ),
 
     _feature_name: ($) =>
       choice($.builtin_feature_name, $.primitive_type, $.id),

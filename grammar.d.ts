@@ -60,6 +60,7 @@ interface LangiumGrammarStruct {
   _terminal_token_element: Rule;
   character_range: Rule;
   terminal_rule_call: Rule;
+  parenthesized_terminal_element: Rule;
 
   id: Rule;
   string: Rule;
