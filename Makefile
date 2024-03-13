@@ -8,7 +8,7 @@ parser/langium.so: src/parser.c
 	$(CC) -o $@ -Isrc $^ -shared -fPIC -Os
 
 src/parser.c: grammar.js
-	tree-sitter generate
+	bun run build
 
 .PHONY: all
 all: build
