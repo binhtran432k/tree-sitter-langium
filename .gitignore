@@ -175,5 +175,7 @@ dist
 .DS_Store
 
 # Treesitter Generated
-parser/*
+build/
+prebuilds/
+parser/
 src/*
