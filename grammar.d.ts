@@ -54,6 +54,7 @@ interface LangiumGrammarStruct {
   _terminal_definition_expression: Rule;
   terminal_alternatives_expression: Rule;
   terminal_group_exression: Rule;
+  _terminal_token: Rule;
   terminal_cardinality_expression: Rule;
 
   _terminal_token_element_expression: Rule;

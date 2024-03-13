@@ -257,7 +257,7 @@ module.exports = grammar({
       choice(
         $.terminal_alternatives_expression,
         $.terminal_group_exression,
-        $.terminal_cardinality_expression,
+        $._terminal_token,
       ),
     terminal_alternatives_expression: ($) =>
       prec.left(
@@ -271,16 +271,15 @@ module.exports = grammar({
     terminal_group_exression: ($) =>
       prec.left(
         PREC.TERMINAL_GROUP,
-        seq(
-          $.terminal_cardinality_expression,
-          repeat1($.terminal_cardinality_expression),
-        ),
+        seq($._terminal_token, repeat1($._terminal_token)),
+      ),
+    _terminal_token: ($) =>
+      choice(
+        $._terminal_token_element_expression,
+        $.terminal_cardinality_expression,
       ),
     terminal_cardinality_expression: ($) =>
-      seq(
-        $._terminal_token_element_expression,
-        optional(choice("?", "*", "+")),
-      ),
+      seq($._terminal_token_element_expression, choice("?", "*", "+")),
 
     _terminal_token_element_expression: ($) => choice($.regex),
 
