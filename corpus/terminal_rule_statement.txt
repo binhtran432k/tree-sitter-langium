@@ -76,3 +76,27 @@ hidden terminal SL_COMMENT: /\/\/[^\n\r]*/;
       (terminal_token_expression
         (regex
           (regex_pattern))))))
+
+================================================================================
+group
+================================================================================
+terminal ID: /[a-z]/;
+terminal ID: /[a-z]/ /[0-9]/;
+--------------------------------------------------------------------------------
+
+(document
+  (terminal_rule_statement
+    (id)
+    (terminal_group_exression
+      (terminal_token_expression
+        (regex
+          (regex_pattern)))))
+  (terminal_rule_statement
+    (id)
+    (terminal_group_exression
+      (terminal_token_expression
+        (regex
+          (regex_pattern)))
+      (terminal_token_expression
+        (regex
+          (regex_pattern))))))
