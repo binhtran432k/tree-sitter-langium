@@ -9,19 +9,17 @@ Hello: -> name=ID;
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (assignment_expression
-        (id)
-        (rule_call_expression
-          (id)))))
+    (assignment_expression
+      (id)
+      (rule_call_expression
+        (id))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (assignment_expression
-        (id)
-        (rule_call_expression
-          (id))))))
+    (assignment_expression
+      (id)
+      (rule_call_expression
+        (id)))))
 
 ================================================================================
 operators
@@ -35,27 +33,24 @@ Hello: name+=ID;
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (assignment_expression
-        (id)
-        (rule_call_expression
-          (id)))))
+    (assignment_expression
+      (id)
+      (rule_call_expression
+        (id))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (assignment_expression
-        (id)
-        (rule_call_expression
-          (id)))))
+    (assignment_expression
+      (id)
+      (rule_call_expression
+        (id))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (assignment_expression
-        (id)
-        (rule_call_expression
-          (id))))))
+    (assignment_expression
+      (id)
+      (rule_call_expression
+        (id)))))
 
 ================================================================================
 feature name
@@ -69,24 +64,21 @@ Hello: entry=ID;
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (assignment_expression
-        (id)
-        (rule_call_expression
-          (id)))))
+    (assignment_expression
+      (id)
+      (rule_call_expression
+        (id))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (assignment_expression
-        (primitive_type)
-        (rule_call_expression
-          (id)))))
+    (assignment_expression
+      (primitive_type)
+      (rule_call_expression
+        (id))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (assignment_expression
-        (builtin_feature_name)
-        (rule_call_expression
-          (id))))))
+    (assignment_expression
+      (builtin_feature_name)
+      (rule_call_expression
+        (id)))))

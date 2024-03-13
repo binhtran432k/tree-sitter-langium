@@ -113,11 +113,15 @@ module.exports = grammar({
       ),
 
     _abstract_token_expression: ($) =>
-      choice($.cardinality_expression, $.action_expression),
+      choice(
+        $.cardinality_expression,
+        $.action_expression,
+        choice($.assignment_expression, $._abstract_terminal_expression),
+      ),
     cardinality_expression: ($) =>
       seq(
         choice($.assignment_expression, $._abstract_terminal_expression),
-        optional(choice("?", "*", "+")),
+        choice("?", "*", "+"),
       ),
     assignment_expression: ($) =>
       seq(

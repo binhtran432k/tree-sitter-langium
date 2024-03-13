@@ -8,8 +8,7 @@ Hello: 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (keyword))))
+    (keyword)))
 
 ================================================================================
 group multiple
@@ -22,12 +21,9 @@ Hello: 'hello' 'world' '!!!';
     (rule_name_expression
       (id))
     (group_exression
-      (cardinality_expression
-        (keyword))
-      (cardinality_expression
-        (keyword))
-      (cardinality_expression
-        (keyword)))))
+      (keyword)
+      (keyword)
+      (keyword))))
 
 ================================================================================
 alternatives single
@@ -40,10 +36,8 @@ Hello: 'hello' | 'world';
     (rule_name_expression
       (id))
     (alternatives_expression
-      (cardinality_expression
-        (keyword))
-      (cardinality_expression
-        (keyword)))))
+      (keyword)
+      (keyword))))
 
 ================================================================================
 alternatives multiple
@@ -57,15 +51,11 @@ Hello: 'hello' | ',' 'world' | '!!!';
       (id))
     (alternatives_expression
       (alternatives_expression
-        (cardinality_expression
-          (keyword))
+        (keyword)
         (group_exression
-          (cardinality_expression
-            (keyword))
-          (cardinality_expression
-            (keyword))))
-      (cardinality_expression
-        (keyword)))))
+          (keyword)
+          (keyword)))
+      (keyword))))
 
 ================================================================================
 conditional branch
@@ -79,8 +69,7 @@ Hello: <Greet> 'hello';
       (id))
     (conditional_branch_expression
       (parameter_reference)
-      (cardinality_expression
-        (keyword)))))
+      (keyword))))
 
 ================================================================================
 conditional branch multiple token
@@ -94,10 +83,8 @@ Hello: <Greet> 'hello' 'world';
       (id))
     (conditional_branch_expression
       (parameter_reference)
-      (cardinality_expression
-        (keyword))
-      (cardinality_expression
-        (keyword)))))
+      (keyword)
+      (keyword))))
 
 ================================================================================
 unordered group
@@ -110,10 +97,8 @@ Hello: 'hello' & 'world';
     (rule_name_expression
       (id))
     (unordered_group_expression
-      (cardinality_expression
-        (keyword))
-      (cardinality_expression
-        (keyword)))))
+      (keyword)
+      (keyword))))
 
 ================================================================================
 unordered group multiple
@@ -127,15 +112,11 @@ Hello: 'hello' & ',' 'world' & '!!!';
       (id))
     (unordered_group_expression
       (unordered_group_expression
-        (cardinality_expression
-          (keyword))
+        (keyword)
         (group_exression
-          (cardinality_expression
-            (keyword))
-          (cardinality_expression
-            (keyword))))
-      (cardinality_expression
-        (keyword)))))
+          (keyword)
+          (keyword)))
+      (keyword))))
 
 ================================================================================
 complex definition
@@ -150,26 +131,18 @@ Hello: 'hello' & ',' | 'world' & '!!!';
       (id))
     (alternatives_expression
       (alternatives_expression
-        (cardinality_expression
-          (keyword))
+        (keyword)
         (unordered_group_expression
-          (cardinality_expression
-            (keyword))
-          (cardinality_expression
-            (keyword))))
-      (cardinality_expression
-        (keyword))))
+          (keyword)
+          (keyword)))
+      (keyword)))
   (parser_rule_statement
     (rule_name_expression
       (id))
     (alternatives_expression
       (unordered_group_expression
-        (cardinality_expression
-          (keyword))
-        (cardinality_expression
-          (keyword)))
+        (keyword)
+        (keyword))
       (unordered_group_expression
-        (cardinality_expression
-          (keyword))
-        (cardinality_expression
-          (keyword))))))
+        (keyword)
+        (keyword)))))

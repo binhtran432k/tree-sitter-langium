@@ -8,8 +8,7 @@ Hello: 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (keyword))))
+    (keyword)))
 
 ================================================================================
 rule call
@@ -25,47 +24,42 @@ Hello: ID<Hello=Hi|Hey>;
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (rule_call_expression
-        (id))))
+    (rule_call_expression
+      (id)))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (rule_call_expression
-        (id)
-        (named_argument_expression
-          (parameter_reference)))))
+    (rule_call_expression
+      (id)
+      (named_argument_expression
+        (parameter_reference))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (rule_call_expression
-        (id)
-        (named_argument_expression
-          (parameter_reference))
-        (named_argument_expression
-          (parameter_reference)))))
+    (rule_call_expression
+      (id)
+      (named_argument_expression
+        (parameter_reference))
+      (named_argument_expression
+        (parameter_reference))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (rule_call_expression
+    (rule_call_expression
+      (id)
+      (named_argument_expression
         (id)
-        (named_argument_expression
-          (id)
-          (parameter_reference)))))
+        (parameter_reference))))
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (rule_call_expression
+    (rule_call_expression
+      (id)
+      (named_argument_expression
         (id)
-        (named_argument_expression
-          (id)
-          (disjunction_expression
-            (parameter_reference)
-            (parameter_reference)))))))
+        (disjunction_expression
+          (parameter_reference)
+          (parameter_reference))))))
 
 ================================================================================
 parenthesized element
@@ -78,15 +72,11 @@ Hello: 'hello' ('world' '!');
     (rule_name_expression
       (id))
     (group_exression
-      (cardinality_expression
-        (keyword))
-      (cardinality_expression
-        (parenthesized_element_expression
-          (group_exression
-            (cardinality_expression
-              (keyword))
-            (cardinality_expression
-              (keyword))))))))
+      (keyword)
+      (parenthesized_element_expression
+        (group_exression
+          (keyword)
+          (keyword))))))
 
 ================================================================================
 predicated keyword
@@ -98,9 +88,8 @@ Hello: => 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (predicated_keyword_expression
-        (keyword)))))
+    (predicated_keyword_expression
+      (keyword))))
 
 ================================================================================
 predicated rule call
@@ -112,11 +101,10 @@ Hello: => ID<Hello>;
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (predicated_rule_call_expression
-        (id)
-        (named_argument_expression
-          (parameter_reference))))))
+    (predicated_rule_call_expression
+      (id)
+      (named_argument_expression
+        (parameter_reference)))))
 
 ================================================================================
 predicated group
@@ -128,13 +116,10 @@ Hello: => ('world' '!');
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (predicated_group_expression
-        (group_exression
-          (cardinality_expression
-            (keyword))
-          (cardinality_expression
-            (keyword)))))))
+    (predicated_group_expression
+      (group_exression
+        (keyword)
+        (keyword)))))
 
 ================================================================================
 predicated group
@@ -147,10 +132,7 @@ Hello: => 'hello' 'world' EOF;
     (rule_name_expression
       (id))
     (group_exression
-      (cardinality_expression
-        (predicated_keyword_expression
-          (keyword)))
-      (cardinality_expression
+      (predicated_keyword_expression
         (keyword))
-      (cardinality_expression
-        (eof)))))
+      (keyword)
+      (eof))))

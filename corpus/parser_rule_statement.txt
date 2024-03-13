@@ -8,8 +8,7 @@ entry Hello: 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (keyword))))
+    (keyword)))
 
 ================================================================================
 fragment
@@ -21,8 +20,7 @@ fragment Fragment: 'frag';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (keyword))))
+    (keyword)))
 
 ================================================================================
 wildcard
@@ -34,8 +32,7 @@ Hello*: 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (keyword))))
+    (keyword)))
 
 ================================================================================
 parameters
@@ -50,16 +47,14 @@ Program<Parameter1, Parameter2>: 'hello';
       (id)
       (parameters
         (id)))
-    (cardinality_expression
-      (keyword)))
+    (keyword))
   (parser_rule_statement
     (rule_name_expression
       (id)
       (parameters
         (id)
         (id)))
-    (cardinality_expression
-      (keyword))))
+    (keyword)))
 
 ================================================================================
 returns
@@ -74,15 +69,13 @@ HelloOjbect returns Object: 'object';
       (id))
     (returns_expression
       (primitive_type))
-    (cardinality_expression
-      (keyword)))
+    (keyword))
   (parser_rule_statement
     (rule_name_expression
       (id))
     (returns_expression
       (id))
-    (cardinality_expression
-      (keyword))))
+    (keyword)))
 
 ================================================================================
 infers
@@ -96,8 +89,7 @@ Hello infers Object: 'hello';
       (id))
     (infers_expression
       (id))
-    (cardinality_expression
-      (keyword))))
+    (keyword)))
 
 ================================================================================
 hidden
@@ -112,16 +104,14 @@ Hello hidden (Hidden1, Hidden2): 'hello';
       (id))
     (hidden_expression
       (id))
-    (cardinality_expression
-      (keyword)))
+    (keyword))
   (parser_rule_statement
     (rule_name_expression
       (id))
     (hidden_expression
       (id)
       (id))
-    (cardinality_expression
-      (keyword))))
+    (keyword)))
 
 ================================================================================
 cardinality

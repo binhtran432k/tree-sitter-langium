@@ -11,8 +11,7 @@ entry Hello: 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (keyword))))
+    (keyword)))
 
 ================================================================================
 import with semicolon
@@ -27,5 +26,4 @@ entry Hello: 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (keyword))))
+    (keyword)))

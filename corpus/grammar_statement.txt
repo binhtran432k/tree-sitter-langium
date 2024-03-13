@@ -11,8 +11,7 @@ entry Hello: 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (keyword))))
+    (keyword)))
 
 ================================================================================
 with
@@ -31,8 +30,7 @@ entry Hello: 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (keyword))))
+    (keyword)))
 
 ================================================================================
 hidden
@@ -51,5 +49,4 @@ entry Hello: 'hello';
   (parser_rule_statement
     (rule_name_expression
       (id))
-    (cardinality_expression
-      (keyword))))
+    (keyword)))
