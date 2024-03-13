@@ -58,6 +58,7 @@ interface LangiumGrammarStruct {
   terminal_cardinality: Rule;
 
   _terminal_token_element: Rule;
+  character_range: Rule;
 
   id: Rule;
   string: Rule;
