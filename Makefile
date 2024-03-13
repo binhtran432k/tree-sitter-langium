@@ -11,8 +11,12 @@ src/parser.c: grammar.js
 	tree-sitter generate
 
 .PHONY: all
-all:
-	npm run test
+all: build
+	bun run test
+
+.PHONY: update
+update: build
+	bun run test:update
 
 .PHONY: run
 run: all
