@@ -1,134 +1,142 @@
 ================================================================================
-simple terminal
+entry
 ================================================================================
-terminal ID: /[a-z]/;
+entry Hello: 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (terminal_rule_statement
-    (id)
-    (regex
-      (regex_pattern))))
+  (parser_rule
+    (rule_name
+      (id))
+    (keyword)))
 
 ================================================================================
 fragment
 ================================================================================
-terminal fragment ID: /[a-z]/;
+fragment Fragment: 'frag';
 --------------------------------------------------------------------------------
 
 (document
-  (terminal_rule_statement
-    (id)
-    (regex
-      (regex_pattern))))
+  (parser_rule
+    (rule_name
+      (id))
+    (keyword)))
+
+================================================================================
+wildcard
+================================================================================
+Hello*: 'hello';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule
+    (rule_name
+      (id))
+    (keyword)))
+
+================================================================================
+parameters
+================================================================================
+Program<Parameter>: 'hello';
+Program<Parameter1, Parameter2>: 'hello';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule
+    (rule_name
+      (id)
+      (parameters
+        (id)))
+    (keyword))
+  (parser_rule
+    (rule_name
+      (id)
+      (parameters
+        (id)
+        (id)))
+    (keyword)))
 
 ================================================================================
 returns
 ================================================================================
-terminal ID returns string: /[a-z]/;
+Hello returns string: 'hello';
+HelloOjbect returns Object: 'object';
 --------------------------------------------------------------------------------
 
 (document
-  (terminal_rule_statement
-    (id)
-    (returns_expression
+  (parser_rule
+    (rule_name
+      (id))
+    (returns
       (primitive_type))
-    (regex
-      (regex_pattern))))
+    (keyword))
+  (parser_rule
+    (rule_name
+      (id))
+    (returns
+      (id))
+    (keyword)))
+
+================================================================================
+infers
+================================================================================
+Hello infers Object: 'hello';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule
+    (rule_name
+      (id))
+    (infers
+      (id))
+    (keyword)))
 
 ================================================================================
 hidden
 ================================================================================
-hidden terminal SL_COMMENT: /\/\/[^\n\r]*/;
+Hello hidden (Hidden): 'hello';
+Hello hidden (Hidden1, Hidden2): 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (terminal_rule_statement
-    (id)
-    (regex
-      (regex_pattern))))
-
-================================================================================
-hidden conflict
-================================================================================
-grammar MyLanguage
-hidden (HiddenToken, HiddenToken2)
-hidden terminal SL_COMMENT: /\/\/[^\n\r]*/;
---------------------------------------------------------------------------------
-
-(document
-  (grammar_statement
-    (id)
-    (hidden_expression
+  (parser_rule
+    (rule_name
+      (id))
+    (hidden
+      (id))
+    (keyword))
+  (parser_rule
+    (rule_name
+      (id))
+    (hidden
       (id)
-      (id)))
-  (terminal_rule_statement
-    (id)
-    (regex
-      (regex_pattern))))
-
-================================================================================
-group
-================================================================================
-terminal ID: /[a-z]/;
-terminal ID: /[a-z]/ /[0-9]/;
---------------------------------------------------------------------------------
-
-(document
-  (terminal_rule_statement
-    (id)
-    (regex
-      (regex_pattern)))
-  (terminal_rule_statement
-    (id)
-    (terminal_group_exression
-      (regex
-        (regex_pattern))
-      (regex
-        (regex_pattern)))))
+      (id))
+    (keyword)))
 
 ================================================================================
 cardinality
 ================================================================================
-terminal ID: /[a-z]/?;
-terminal ID: /[a-z]/*;
-terminal ID: /[a-z]/+;
+Hello: name=ID+;
+Hello: 'hello'?;
+Hello: 'hello'*;
 --------------------------------------------------------------------------------
 
 (document
-  (terminal_rule_statement
-    (id)
-    (terminal_cardinality_expression
-      (regex
-        (regex_pattern))))
-  (terminal_rule_statement
-    (id)
-    (terminal_cardinality_expression
-      (regex
-        (regex_pattern))))
-  (terminal_rule_statement
-    (id)
-    (terminal_cardinality_expression
-      (regex
-        (regex_pattern)))))
-
-================================================================================
-alternatives
-================================================================================
-terminal ID: /[a-z]/ | /[A-Z]/ | /[0-9]/ /-_/;
---------------------------------------------------------------------------------
-
-(document
-  (terminal_rule_statement
-    (id)
-    (terminal_alternatives_expression
-      (terminal_alternatives_expression
-        (regex
-          (regex_pattern))
-        (regex
-          (regex_pattern)))
-      (terminal_group_exression
-        (regex
-          (regex_pattern))
-        (regex
-          (regex_pattern))))))
+  (parser_rule
+    (rule_name
+      (id))
+    (cardinality
+      (assignment
+        (id)
+        (rule_call
+          (id)))))
+  (parser_rule
+    (rule_name
+      (id))
+    (cardinality
+      (keyword)))
+  (parser_rule
+    (rule_name
+      (id))
+    (cardinality
+      (keyword))))

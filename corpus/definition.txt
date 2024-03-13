@@ -1,142 +1,148 @@
 ================================================================================
-entry
+group single
 ================================================================================
-entry Hello: 'hello';
+Hello: 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
     (keyword)))
 
 ================================================================================
-fragment
+group multiple
 ================================================================================
-fragment Fragment: 'frag';
+Hello: 'hello' 'world' '!!!';
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (keyword)))
-
-================================================================================
-wildcard
-================================================================================
-Hello*: 'hello';
---------------------------------------------------------------------------------
-
-(document
-  (parser_rule_statement
-    (rule_name_expression
-      (id))
-    (keyword)))
-
-================================================================================
-parameters
-================================================================================
-Program<Parameter>: 'hello';
-Program<Parameter1, Parameter2>: 'hello';
---------------------------------------------------------------------------------
-
-(document
-  (parser_rule_statement
-    (rule_name_expression
-      (id)
-      (parameters
-        (id)))
-    (keyword))
-  (parser_rule_statement
-    (rule_name_expression
-      (id)
-      (parameters
-        (id)
-        (id)))
-    (keyword)))
-
-================================================================================
-returns
-================================================================================
-Hello returns string: 'hello';
-HelloOjbect returns Object: 'object';
---------------------------------------------------------------------------------
-
-(document
-  (parser_rule_statement
-    (rule_name_expression
-      (id))
-    (returns_expression
-      (primitive_type))
-    (keyword))
-  (parser_rule_statement
-    (rule_name_expression
-      (id))
-    (returns_expression
-      (id))
-    (keyword)))
-
-================================================================================
-infers
-================================================================================
-Hello infers Object: 'hello';
---------------------------------------------------------------------------------
-
-(document
-  (parser_rule_statement
-    (rule_name_expression
-      (id))
-    (infers_expression
-      (id))
-    (keyword)))
-
-================================================================================
-hidden
-================================================================================
-Hello hidden (Hidden): 'hello';
-Hello hidden (Hidden1, Hidden2): 'hello';
---------------------------------------------------------------------------------
-
-(document
-  (parser_rule_statement
-    (rule_name_expression
-      (id))
-    (hidden_expression
-      (id))
-    (keyword))
-  (parser_rule_statement
-    (rule_name_expression
-      (id))
-    (hidden_expression
-      (id)
-      (id))
-    (keyword)))
-
-================================================================================
-cardinality
-================================================================================
-Hello: name=ID+;
-Hello: 'hello'?;
-Hello: 'hello'*;
---------------------------------------------------------------------------------
-
-(document
-  (parser_rule_statement
-    (rule_name_expression
-      (id))
-    (cardinality_expression
-      (assignment_expression
-        (id)
-        (rule_call_expression
-          (id)))))
-  (parser_rule_statement
-    (rule_name_expression
-      (id))
-    (cardinality_expression
-      (keyword)))
-  (parser_rule_statement
-    (rule_name_expression
-      (id))
-    (cardinality_expression
+    (group
+      (keyword)
+      (keyword)
       (keyword))))
+
+================================================================================
+alternatives single
+================================================================================
+Hello: 'hello' | 'world';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule
+    (rule_name
+      (id))
+    (alternatives
+      (keyword)
+      (keyword))))
+
+================================================================================
+alternatives multiple
+================================================================================
+Hello: 'hello' | ',' 'world' | '!!!';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule
+    (rule_name
+      (id))
+    (alternatives
+      (alternatives
+        (keyword)
+        (group
+          (keyword)
+          (keyword)))
+      (keyword))))
+
+================================================================================
+conditional branch
+================================================================================
+Hello: <Greet> 'hello';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule
+    (rule_name
+      (id))
+    (conditional_branch
+      (parameter_reference)
+      (keyword))))
+
+================================================================================
+conditional branch multiple token
+================================================================================
+Hello: <Greet> 'hello' 'world';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule
+    (rule_name
+      (id))
+    (conditional_branch
+      (parameter_reference)
+      (keyword)
+      (keyword))))
+
+================================================================================
+unordered group
+================================================================================
+Hello: 'hello' & 'world';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule
+    (rule_name
+      (id))
+    (unordered_group
+      (keyword)
+      (keyword))))
+
+================================================================================
+unordered group multiple
+================================================================================
+Hello: 'hello' & ',' 'world' & '!!!';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule
+    (rule_name
+      (id))
+    (unordered_group
+      (unordered_group
+        (keyword)
+        (group
+          (keyword)
+          (keyword)))
+      (keyword))))
+
+================================================================================
+complex definition
+================================================================================
+Hello: 'hello' | ',' & 'world' | '!!!';
+Hello: 'hello' & ',' | 'world' & '!!!';
+--------------------------------------------------------------------------------
+
+(document
+  (parser_rule
+    (rule_name
+      (id))
+    (alternatives
+      (alternatives
+        (keyword)
+        (unordered_group
+          (keyword)
+          (keyword)))
+      (keyword)))
+  (parser_rule
+    (rule_name
+      (id))
+    (alternatives
+      (unordered_group
+        (keyword)
+        (keyword))
+      (unordered_group
+        (keyword)
+        (keyword)))))

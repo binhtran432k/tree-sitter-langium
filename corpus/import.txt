@@ -6,10 +6,10 @@ entry Hello: 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (import_statement
+  (import
     (string))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
     (keyword)))
 
@@ -21,9 +21,9 @@ entry Hello: 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (import_statement
+  (import
     (string))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
     (keyword)))

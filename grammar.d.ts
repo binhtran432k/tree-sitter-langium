@@ -1,63 +1,63 @@
 interface LangiumGrammarStruct {
   document: Rule;
-  grammar_statement: Rule;
-  with_expression: Rule;
-  hidden_expression: Rule;
-  import_statement: Rule;
+  grammar: Rule;
+  with: Rule;
+  hidden: Rule;
+  import: Rule;
 
-  _abstract_rule_statement: Rule;
-  parser_rule_statement: Rule;
-  rule_name_expression: Rule;
-  returns_expression: Rule;
-  infers_expression: Rule;
-  infer_expression: Rule;
+  _abstract_rule: Rule;
+  parser_rule: Rule;
+  rule_name: Rule;
+  returns: Rule;
+  infers: Rule;
+  infer: Rule;
 
-  _definition_expression: Rule;
-  alternatives_expression: Rule;
-  conditional_branch_expression: Rule;
-  unordered_group_expression: Rule;
-  group_exression: Rule;
+  _definition: Rule;
+  alternatives: Rule;
+  conditional_branch: Rule;
+  unordered_group: Rule;
+  group: Rule;
 
-  _abstract_token_expression: Rule;
-  cardinality_expression: Rule;
-  assignment_expression: Rule;
-  action_expression: Rule;
+  _abstract_token: Rule;
+  cardinality: Rule;
+  assignment: Rule;
+  action: Rule;
 
-  _condition_expression: Rule;
-  disjunction_expression: Rule;
-  conjunction_expression: Rule;
-  negation_expression: Rule;
-  _atom_expression: Rule;
-  parenthesized_condition_expression: Rule;
-  _parameter_reference_expression: Rule;
+  _condition: Rule;
+  disjunction: Rule;
+  conjunction: Rule;
+  negation: Rule;
+  _atom: Rule;
+  parenthesized_condition: Rule;
+  _parameter_reference: Rule;
 
-  _abstract_terminal_expression: Rule;
-  _keyword_expression: Rule;
+  _abstract_terminal: Rule;
+  _keyword: Rule;
   __rule_call: Rule;
-  rule_call_expression: Rule;
-  named_argument_expression: Rule;
-  parenthesized_element_expression: Rule;
-  predicated_keyword_expression: Rule;
-  predicated_rule_call_expression: Rule;
-  predicated_group_expression: Rule;
+  rule_call: Rule;
+  named_argument: Rule;
+  parenthesized_element: Rule;
+  predicated_keyword: Rule;
+  predicated_rule_call: Rule;
+  predicated_group: Rule;
 
-  _assignable_terminal_expression: Rule;
-  parenthesized_assignable_element_expression: Rule;
-  assignable_alternatives_expression: Rule;
-  cross_reference_expression: Rule;
-  _cross_referencable_terminal_expression: Rule;
+  _assignable_terminal: Rule;
+  parenthesized_assignable_element: Rule;
+  assignable_alternatives: Rule;
+  cross_reference: Rule;
+  _cross_referencable_terminal: Rule;
 
-  _feature_name_expression: Rule;
+  _feature_name: Rule;
 
-  terminal_rule_statement: Rule;
+  terminal_rule: Rule;
 
-  _terminal_definition_expression: Rule;
-  terminal_alternatives_expression: Rule;
-  terminal_group_exression: Rule;
+  _terminal_definition: Rule;
+  terminal_alternatives: Rule;
+  terminal_group: Rule;
   _terminal_token: Rule;
-  terminal_cardinality_expression: Rule;
+  terminal_cardinality: Rule;
 
-  _terminal_token_element_expression: Rule;
+  _terminal_token_element: Rule;
 
   id: Rule;
   string: Rule;

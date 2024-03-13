@@ -69,8 +69,8 @@
 (parameters
   (id) @variable.parameter)
 
-(action_expression
+(action
   feature: (id) @property)
 
-(assignment_expression
+(assignment
   feature: (id) @property)

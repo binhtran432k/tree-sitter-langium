@@ -5,8 +5,8 @@ Hello: 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
     (keyword)))
 
@@ -21,43 +21,43 @@ Hello: ID<Hello=Hi|Hey>;
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (rule_call_expression
+    (rule_call
       (id)))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (rule_call_expression
+    (rule_call
       (id)
-      (named_argument_expression
+      (named_argument
         (parameter_reference))))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (rule_call_expression
+    (rule_call
       (id)
-      (named_argument_expression
+      (named_argument
         (parameter_reference))
-      (named_argument_expression
+      (named_argument
         (parameter_reference))))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (rule_call_expression
+    (rule_call
       (id)
-      (named_argument_expression
+      (named_argument
         (id)
         (parameter_reference))))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (rule_call_expression
+    (rule_call
       (id)
-      (named_argument_expression
+      (named_argument
         (id)
-        (disjunction_expression
+        (disjunction
           (parameter_reference)
           (parameter_reference))))))
 
@@ -68,13 +68,13 @@ Hello: 'hello' ('world' '!');
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (group_exression
+    (group
       (keyword)
-      (parenthesized_element_expression
-        (group_exression
+      (parenthesized_element
+        (group
           (keyword)
           (keyword))))))
 
@@ -85,10 +85,10 @@ Hello: => 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (predicated_keyword_expression
+    (predicated_keyword
       (keyword))))
 
 ================================================================================
@@ -98,12 +98,12 @@ Hello: => ID<Hello>;
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (predicated_rule_call_expression
+    (predicated_rule_call
       (id)
-      (named_argument_expression
+      (named_argument
         (parameter_reference)))))
 
 ================================================================================
@@ -113,11 +113,11 @@ Hello: => ('world' '!');
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (predicated_group_expression
-      (group_exression
+    (predicated_group
+      (group
         (keyword)
         (keyword)))))
 
@@ -128,11 +128,11 @@ Hello: => 'hello' 'world' EOF;
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (group_exression
-      (predicated_keyword_expression
+    (group
+      (predicated_keyword
         (keyword))
       (keyword)
       (eof))))

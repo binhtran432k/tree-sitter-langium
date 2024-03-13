@@ -5,10 +5,10 @@ Hello: { World };
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (action_expression
+    (action
       (id))))
 
 ================================================================================
@@ -18,11 +18,11 @@ Hello: { infer World };
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (action_expression
-      (infer_expression
+    (action
+      (infer
         (id)))))
 
 ================================================================================
@@ -34,22 +34,22 @@ Hello: { World.grammar = current };
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (action_expression
+    (action
       (id)
       (id)))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (action_expression
+    (action
       (id)
       (primitive_type)))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (action_expression
+    (action
       (id)
       (builtin_feature_name))))
 
@@ -60,9 +60,9 @@ Hello: { World.id += current };
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (action_expression
+    (action
       (id)
       (id))))

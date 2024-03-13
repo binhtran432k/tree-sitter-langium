@@ -6,19 +6,19 @@ Hello: -> name=ID;
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (id)
-      (rule_call_expression
+      (rule_call
         (id))))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (id)
-      (rule_call_expression
+      (rule_call
         (id)))))
 
 ================================================================================
@@ -30,26 +30,26 @@ Hello: name+=ID;
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (id)
-      (rule_call_expression
+      (rule_call
         (id))))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (id)
-      (rule_call_expression
+      (rule_call
         (id))))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (id)
-      (rule_call_expression
+      (rule_call
         (id)))))
 
 ================================================================================
@@ -61,24 +61,24 @@ Hello: entry=ID;
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (id)
-      (rule_call_expression
+      (rule_call
         (id))))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (primitive_type)
-      (rule_call_expression
+      (rule_call
         (id))))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (builtin_feature_name)
-      (rule_call_expression
+      (rule_call
         (id)))))

@@ -25,41 +25,35 @@ module.exports = grammar({
 
   rules: {
     document: ($) =>
-      seq(
-        optional($.grammar_statement),
-        repeat($.import_statement),
-        repeat1($._abstract_rule_statement),
-      ),
+      seq(optional($.grammar), repeat($.import), repeat1($._abstract_rule)),
 
-    grammar_statement: ($) =>
+    grammar: ($) =>
       prec.right(
         seq(
           "grammar",
           field("name", $.id),
-          optional($.with_expression),
-          optional($.hidden_expression),
+          optional($.with),
+          optional($.hidden),
         ),
       ),
-    with_expression: ($) => seq("with", $._ids),
-    hidden_expression: ($) => seq("hidden", "(", optional($._ids), ")"),
+    with: ($) => seq("with", $._ids),
+    hidden: ($) => seq("hidden", "(", optional($._ids), ")"),
 
-    _abstract_rule_statement: ($) =>
-      choice($.parser_rule_statement, $.terminal_rule_statement),
+    _abstract_rule: ($) => choice($.parser_rule, $.terminal_rule),
 
-    import_statement: ($) =>
-      seq("import", field("path", $.string), optional(";")),
+    import: ($) => seq("import", field("path", $.string), optional(";")),
 
-    parser_rule_statement: ($) =>
+    parser_rule: ($) =>
       seq(
         optional(choice("entry", "fragment")),
-        $.rule_name_expression,
-        optional(choice("*", $.returns_expression, $.infers_expression)),
-        optional($.hidden_expression),
+        $.rule_name,
+        optional(choice("*", $.returns, $.infers)),
+        optional($.hidden),
         ":",
-        field("definition", $._definition_expression),
+        field("definition", $._definition),
         ";",
       ),
-    rule_name_expression: ($) =>
+    rule_name: ($) =>
       seq(
         field("name", $.id),
         optional(
@@ -70,74 +64,54 @@ module.exports = grammar({
           ),
         ),
       ),
-    returns_expression: ($) =>
+    returns: ($) =>
       seq("returns", field("type", choice($.id, $.primitive_type))),
-    infers_expression: ($) => seq("infers", field("inferred_type", $.id)),
-    infer_expression: ($) => seq("infer", field("inferred_type", $.id)),
+    infers: ($) => seq("infers", field("inferred_type", $.id)),
+    infer: ($) => seq("infer", field("inferred_type", $.id)),
 
-    _definition_expression: ($) =>
+    _definition: ($) =>
       choice(
-        $.alternatives_expression,
-        $.conditional_branch_expression,
-        $.unordered_group_expression,
-        $.group_exression,
-        $._abstract_token_expression,
+        $.alternatives,
+        $.conditional_branch,
+        $.unordered_group,
+        $.group,
+        $._abstract_token,
       ),
-    alternatives_expression: ($) =>
-      prec.left(
-        PREC.ALTERNATIVES,
-        seq($._definition_expression, "|", $._definition_expression),
-      ),
-    conditional_branch_expression: ($) =>
+    alternatives: ($) =>
+      prec.left(PREC.ALTERNATIVES, seq($._definition, "|", $._definition)),
+    conditional_branch: ($) =>
       prec.left(
         PREC.CONDITIONAL_BRANCH,
-        seq(
-          "<",
-          $._condition_expression,
-          ">",
-          repeat1($._abstract_token_expression),
-        ),
+        seq("<", $._condition, ">", repeat1($._abstract_token)),
       ),
-    unordered_group_expression: ($) =>
-      prec.left(
-        PREC.UNORDERED_GROUP,
-        seq($._definition_expression, "&", $._definition_expression),
-      ),
-    group_exression: ($) =>
-      prec.left(
-        PREC.GROUP,
-        seq(
-          $._abstract_token_expression,
-          repeat1($._abstract_token_expression),
-        ),
-      ),
+    unordered_group: ($) =>
+      prec.left(PREC.UNORDERED_GROUP, seq($._definition, "&", $._definition)),
+    group: ($) =>
+      prec.left(PREC.GROUP, seq($._abstract_token, repeat1($._abstract_token))),
 
-    _abstract_token_expression: ($) =>
+    _abstract_token: ($) =>
       choice(
-        $.cardinality_expression,
-        $.action_expression,
-        choice($.assignment_expression, $._abstract_terminal_expression),
+        $.cardinality,
+        $.action,
+        choice($.assignment, $._abstract_terminal),
       ),
-    cardinality_expression: ($) =>
-      seq(
-        choice($.assignment_expression, $._abstract_terminal_expression),
-        choice("?", "*", "+"),
-      ),
-    assignment_expression: ($) =>
+    cardinality: ($) =>
+      seq(choice($.assignment, $._abstract_terminal), choice("?", "*", "+")),
+    assignment: ($) =>
       seq(
         optional(choice("=>", "->")),
-        field("feature", $._feature_name_expression),
+        field("feature", $._feature_name),
         choice("+=", "=", "?="),
-        field("terminal", $._assignable_terminal_expression),
+        field("terminal", $._assignable_terminal),
       ),
-    action_expression: ($) =>
+    action: ($) =>
       seq(
         "{",
-        field("type", choice($.id, $.infer_expression)),
+        field("type", choice($.id, $.infer)),
         optional(
           seq(
             ".",
-            field("feature", $._feature_name_expression),
+            field("feature", $._feature_name),
             choice("=", "+="),
             "current",
           ),
@@ -145,145 +119,105 @@ module.exports = grammar({
         "}",
       ),
 
-    _abstract_terminal_expression: ($) =>
+    _abstract_terminal: ($) =>
       choice(
-        $._keyword_expression,
-        $.rule_call_expression,
-        $.parenthesized_element_expression,
-        $.predicated_keyword_expression,
-        $.predicated_rule_call_expression,
-        $.predicated_group_expression,
+        $._keyword,
+        $.rule_call,
+        $.parenthesized_element,
+        $.predicated_keyword,
+        $.predicated_rule_call,
+        $.predicated_group,
         $.eof,
       ),
-    _keyword_expression: ($) => alias($.string, $.keyword),
-    rule_call_expression: ($) => $.__rule_call,
+    _keyword: ($) => alias($.string, $.keyword),
+    rule_call: ($) => $.__rule_call,
     __rule_call: ($) =>
       seq(
         field("rule", $.id),
         optional(
-          seq(
-            "<",
-            $.named_argument_expression,
-            repeat(seq(",", $.named_argument_expression)),
-            ">",
-          ),
+          seq("<", $.named_argument, repeat(seq(",", $.named_argument)), ">"),
         ),
       ),
-    named_argument_expression: ($) =>
-      seq(
-        optional(seq(field("parameter", $.id), "=")),
-        $._condition_expression,
-      ),
-    parenthesized_element_expression: ($) =>
-      seq("(", $._definition_expression, ")"),
-    predicated_keyword_expression: ($) =>
-      seq(choice("=>", "->"), $._keyword_expression),
-    predicated_rule_call_expression: ($) =>
-      seq(choice("=>", "->"), $.__rule_call),
-    predicated_group_expression: ($) =>
-      seq(choice("=>", "->"), "(", $._definition_expression, ")"),
+    named_argument: ($) =>
+      seq(optional(seq(field("parameter", $.id), "=")), $._condition),
+    parenthesized_element: ($) => seq("(", $._definition, ")"),
+    predicated_keyword: ($) => seq(choice("=>", "->"), $._keyword),
+    predicated_rule_call: ($) => seq(choice("=>", "->"), $.__rule_call),
+    predicated_group: ($) => seq(choice("=>", "->"), "(", $._definition, ")"),
 
-    _assignable_terminal_expression: ($) =>
+    _assignable_terminal: ($) =>
       choice(
-        $._keyword_expression,
-        $.rule_call_expression,
-        $.parenthesized_assignable_element_expression,
-        $.cross_reference_expression,
+        $._keyword,
+        $.rule_call,
+        $.parenthesized_assignable_element,
+        $.cross_reference,
       ),
-    parenthesized_assignable_element_expression: ($) =>
-      seq("(", $.assignable_alternatives_expression, ")"),
-    assignable_alternatives_expression: ($) =>
-      seq(
-        $._assignable_terminal_expression,
-        repeat(seq("|", $._assignable_terminal_expression)),
-      ),
-    cross_reference_expression: ($) =>
+    parenthesized_assignable_element: ($) =>
+      seq("(", $.assignable_alternatives, ")"),
+    assignable_alternatives: ($) =>
+      seq($._assignable_terminal, repeat(seq("|", $._assignable_terminal))),
+    cross_reference: ($) =>
       seq(
         "[",
         field("type", $.id),
         choice("|", ":"),
-        $._cross_referencable_terminal_expression,
+        $._cross_referencable_terminal,
         "]",
       ),
-    _cross_referencable_terminal_expression: ($) =>
-      choice($._keyword_expression, $.rule_call_expression),
+    _cross_referencable_terminal: ($) => choice($._keyword, $.rule_call),
 
-    _condition_expression: ($) =>
-      choice(
-        $.disjunction_expression,
-        $.conjunction_expression,
-        $.negation_expression,
-        $._atom_expression,
-      ),
-    disjunction_expression: ($) =>
-      prec.left(
-        PREC.DISJUNCTION,
-        seq($._condition_expression, "|", $._condition_expression),
-      ),
-    conjunction_expression: ($) =>
-      prec.left(
-        PREC.CONJUNCTION,
-        seq($._condition_expression, "&", $._condition_expression),
-      ),
-    negation_expression: ($) =>
-      prec.right(PREC.NEGATION, seq("!", $._condition_expression)),
-    _atom_expression: ($) =>
+    _condition: ($) =>
+      choice($.disjunction, $.conjunction, $.negation, $._atom),
+    disjunction: ($) =>
+      prec.left(PREC.DISJUNCTION, seq($._condition, "|", $._condition)),
+    conjunction: ($) =>
+      prec.left(PREC.CONJUNCTION, seq($._condition, "&", $._condition)),
+    negation: ($) => prec.right(PREC.NEGATION, seq("!", $._condition)),
+    _atom: ($) =>
       prec(
         PREC.ATOM,
         choice(
-          $._parameter_reference_expression,
-          $.parenthesized_condition_expression,
+          $._parameter_reference,
+          $.parenthesized_condition,
           $.boolean_literal,
         ),
       ),
-    parenthesized_condition_expression: ($) =>
-      seq("(", $._condition_expression, ")"),
-    _parameter_reference_expression: ($) => alias($.id, $.parameter_reference),
+    parenthesized_condition: ($) => seq("(", $._condition, ")"),
+    _parameter_reference: ($) => alias($.id, $.parameter_reference),
 
-    terminal_rule_statement: ($) =>
+    terminal_rule: ($) =>
       seq(
         optional("hidden"),
         "terminal",
         choice(
           seq("fragment", field("name", $.id)),
-          seq(field("name", $.id), optional($.returns_expression)),
+          seq(field("name", $.id), optional($.returns)),
         ),
         ":",
-        field("definition", $._terminal_definition_expression),
+        field("definition", $._terminal_definition),
         ";",
       ),
 
-    _terminal_definition_expression: ($) =>
-      choice(
-        $.terminal_alternatives_expression,
-        $.terminal_group_exression,
-        $._terminal_token,
-      ),
-    terminal_alternatives_expression: ($) =>
+    _terminal_definition: ($) =>
+      choice($.terminal_alternatives, $.terminal_group, $._terminal_token),
+    terminal_alternatives: ($) =>
       prec.left(
         PREC.TERMINAL_ALTERNATIVES,
-        seq(
-          $._terminal_definition_expression,
-          "|",
-          $._terminal_definition_expression,
-        ),
+        seq($._terminal_definition, "|", $._terminal_definition),
       ),
-    terminal_group_exression: ($) =>
+    terminal_group: ($) =>
       prec.left(
         PREC.TERMINAL_GROUP,
         seq($._terminal_token, repeat1($._terminal_token)),
       ),
     _terminal_token: ($) =>
-      choice(
-        $._terminal_token_element_expression,
-        $.terminal_cardinality_expression,
-      ),
-    terminal_cardinality_expression: ($) =>
-      seq($._terminal_token_element_expression, choice("?", "*", "+")),
+      choice($._terminal_token_element, $.terminal_cardinality),
+    terminal_cardinality: ($) =>
+      seq($._terminal_token_element, choice("?", "*", "+")),
 
-    _terminal_token_element_expression: ($) => choice($.regex),
+    _terminal_token_element: ($) => choice($.regex),
 
-    _feature_name_expression: ($) =>
+    _feature_name: ($) =>
       choice($.builtin_feature_name, $.primitive_type, $.id),
 
     id: () => /\^?[_a-zA-Z][\w_]*/,

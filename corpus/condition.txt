@@ -6,20 +6,20 @@ Hello: <a | b | c> 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (conditional_branch_expression
-      (disjunction_expression
+    (conditional_branch
+      (disjunction
         (parameter_reference)
         (parameter_reference))
       (keyword)))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (conditional_branch_expression
-      (disjunction_expression
-        (disjunction_expression
+    (conditional_branch
+      (disjunction
+        (disjunction
           (parameter_reference)
           (parameter_reference))
         (parameter_reference))
@@ -33,20 +33,20 @@ Hello: <a & b & c> 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (conditional_branch_expression
-      (conjunction_expression
+    (conditional_branch
+      (conjunction
         (parameter_reference)
         (parameter_reference))
       (keyword)))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (conditional_branch_expression
-      (conjunction_expression
-        (conjunction_expression
+    (conditional_branch
+      (conjunction
+        (conjunction
           (parameter_reference)
           (parameter_reference))
         (parameter_reference))
@@ -60,19 +60,19 @@ Hello: <!!a> 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (conditional_branch_expression
-      (negation_expression
+    (conditional_branch
+      (negation
         (parameter_reference))
       (keyword)))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (conditional_branch_expression
-      (negation_expression
-        (negation_expression
+    (conditional_branch
+      (negation
+        (negation
           (parameter_reference)))
       (keyword))))
 
@@ -83,10 +83,10 @@ Hello: <a> 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (conditional_branch_expression
+    (conditional_branch
       (parameter_reference)
       (keyword))))
 
@@ -97,11 +97,11 @@ Hello: <(a)> 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (conditional_branch_expression
-      (parenthesized_condition_expression
+    (conditional_branch
+      (parenthesized_condition
         (parameter_reference))
       (keyword))))
 
@@ -112,10 +112,10 @@ Hello: <true> 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (conditional_branch_expression
+    (conditional_branch
       (boolean_literal)
       (keyword))))
 
@@ -129,51 +129,51 @@ Hello: <a & (b | c) & true> 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (conditional_branch_expression
-      (disjunction_expression
-        (disjunction_expression
+    (conditional_branch
+      (disjunction
+        (disjunction
           (parameter_reference)
           (parameter_reference))
-        (negation_expression
-          (negation_expression
+        (negation
+          (negation
             (boolean_literal))))
       (keyword)))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (conditional_branch_expression
-      (disjunction_expression
-        (disjunction_expression
+    (conditional_branch
+      (disjunction
+        (disjunction
           (parameter_reference)
-          (conjunction_expression
+          (conjunction
             (parameter_reference)
             (parameter_reference)))
         (boolean_literal))
       (keyword)))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (conditional_branch_expression
-      (disjunction_expression
-        (conjunction_expression
+    (conditional_branch
+      (disjunction
+        (conjunction
           (parameter_reference)
           (parameter_reference))
-        (conjunction_expression
+        (conjunction
           (parameter_reference)
           (boolean_literal)))
       (keyword)))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (conditional_branch_expression
-      (conjunction_expression
-        (conjunction_expression
+    (conditional_branch
+      (conjunction
+        (conjunction
           (parameter_reference)
-          (parenthesized_condition_expression
-            (disjunction_expression
+          (parenthesized_condition
+            (disjunction
               (parameter_reference)
               (parameter_reference))))
         (boolean_literal))

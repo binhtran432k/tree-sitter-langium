@@ -6,10 +6,10 @@ entry Hello: 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (grammar_statement
+  (grammar
     (id))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
     (keyword)))
 
@@ -22,13 +22,13 @@ entry Hello: 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (grammar_statement
+  (grammar
     (id)
-    (with_expression
+    (with
       (id)
       (id)))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
     (keyword)))
 
@@ -41,12 +41,12 @@ entry Hello: 'hello';
 --------------------------------------------------------------------------------
 
 (document
-  (grammar_statement
+  (grammar
     (id)
-    (hidden_expression
+    (hidden
       (id)
       (id)))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
     (keyword)))

@@ -7,8 +7,8 @@ entry Hello: 'hello';
 
 (document
   (line_comment)
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
     (keyword)))
 
@@ -21,8 +21,8 @@ entry Hello: 'hello';
 
 (document
   (block_comment)
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
     (keyword)))
 
@@ -37,7 +37,7 @@ entry Hello: 'hello';
 
 (document
   (block_comment)
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
     (keyword)))

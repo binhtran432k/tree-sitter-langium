@@ -5,10 +5,10 @@ Hello: name='hello';
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (id)
       (keyword))))
 
@@ -23,53 +23,53 @@ Hello: name=ID<Hello=Hi|Hey>;
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (id)
-      (rule_call_expression
+      (rule_call
         (id))))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (id)
-      (rule_call_expression
+      (rule_call
         (id)
-        (named_argument_expression
+        (named_argument
           (parameter_reference)))))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (id)
-      (rule_call_expression
+      (rule_call
         (id)
-        (named_argument_expression
+        (named_argument
           (parameter_reference))
-        (named_argument_expression
+        (named_argument
           (parameter_reference)))))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (id)
-      (rule_call_expression
+      (rule_call
         (id)
-        (named_argument_expression
+        (named_argument
           (id)
           (parameter_reference)))))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (id)
-      (rule_call_expression
+      (rule_call
         (id)
-        (named_argument_expression
+        (named_argument
           (id)
-          (disjunction_expression
+          (disjunction
             (parameter_reference)
             (parameter_reference)))))))
 
@@ -81,21 +81,21 @@ Hello: name=('hello' | 'world' | '!!!');
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (id)
-      (parenthesized_assignable_element_expression
-        (assignable_alternatives_expression
+      (parenthesized_assignable_element
+        (assignable_alternatives
           (keyword)))))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (id)
-      (parenthesized_assignable_element_expression
-        (assignable_alternatives_expression
+      (parenthesized_assignable_element
+        (assignable_alternatives
           (keyword)
           (keyword)
           (keyword))))))
@@ -109,29 +109,29 @@ Hello: type=[World|ID];
 --------------------------------------------------------------------------------
 
 (document
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (builtin_feature_name)
-      (cross_reference_expression
+      (cross_reference
         (id)
         (keyword))))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (builtin_feature_name)
-      (cross_reference_expression
+      (cross_reference
         (id)
-        (rule_call_expression
+        (rule_call
           (id)))))
-  (parser_rule_statement
-    (rule_name_expression
+  (parser_rule
+    (rule_name
       (id))
-    (assignment_expression
+    (assignment
       (builtin_feature_name)
-      (cross_reference_expression
+      (cross_reference
         (id)
-        (rule_call_expression
+        (rule_call
           (id))))))
