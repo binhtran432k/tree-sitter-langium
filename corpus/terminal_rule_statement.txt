@@ -7,7 +7,7 @@ terminal ID: /[a-z]/;
 (document
   (terminal_rule_statement
     (id)
-    (terminal_token_expression
+    (terminal_cardinality_expression
       (regex
         (regex_pattern)))))
 
@@ -20,7 +20,7 @@ terminal fragment ID: /[a-z]/;
 (document
   (terminal_rule_statement
     (id)
-    (terminal_token_expression
+    (terminal_cardinality_expression
       (regex
         (regex_pattern)))))
 
@@ -35,7 +35,7 @@ terminal ID returns string: /[a-z]/;
     (id)
     (returns_expression
       (primitive_type))
-    (terminal_token_expression
+    (terminal_cardinality_expression
       (regex
         (regex_pattern)))))
 
@@ -48,7 +48,7 @@ hidden terminal SL_COMMENT: /\/\/[^\n\r]*/;
 (document
   (terminal_rule_statement
     (id)
-    (terminal_token_expression
+    (terminal_cardinality_expression
       (regex
         (regex_pattern)))))
 
@@ -68,7 +68,7 @@ hidden terminal SL_COMMENT: /\/\/[^\n\r]*/;
       (id)))
   (terminal_rule_statement
     (id)
-    (terminal_token_expression
+    (terminal_cardinality_expression
       (regex
         (regex_pattern)))))
 
@@ -82,16 +82,16 @@ terminal ID: /[a-z]/ /[0-9]/;
 (document
   (terminal_rule_statement
     (id)
-    (terminal_token_expression
+    (terminal_cardinality_expression
       (regex
         (regex_pattern))))
   (terminal_rule_statement
     (id)
     (terminal_group_exression
-      (terminal_token_expression
+      (terminal_cardinality_expression
         (regex
           (regex_pattern)))
-      (terminal_token_expression
+      (terminal_cardinality_expression
         (regex
           (regex_pattern))))))
 
@@ -106,17 +106,17 @@ terminal ID: /[a-z]/+;
 (document
   (terminal_rule_statement
     (id)
-    (terminal_token_expression
+    (terminal_cardinality_expression
       (regex
         (regex_pattern))))
   (terminal_rule_statement
     (id)
-    (terminal_token_expression
+    (terminal_cardinality_expression
       (regex
         (regex_pattern))))
   (terminal_rule_statement
     (id)
-    (terminal_token_expression
+    (terminal_cardinality_expression
       (regex
         (regex_pattern)))))
 
@@ -131,16 +131,16 @@ terminal ID: /[a-z]/ | /[A-Z]/ | /[0-9]/ /-_/;
     (id)
     (terminal_alternatives_expression
       (terminal_alternatives_expression
-        (terminal_token_expression
+        (terminal_cardinality_expression
           (regex
             (regex_pattern)))
-        (terminal_token_expression
+        (terminal_cardinality_expression
           (regex
             (regex_pattern))))
       (terminal_group_exression
-        (terminal_token_expression
+        (terminal_cardinality_expression
           (regex
             (regex_pattern)))
-        (terminal_token_expression
+        (terminal_cardinality_expression
           (regex
             (regex_pattern)))))))
