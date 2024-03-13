@@ -72,7 +72,7 @@ interface LangiumGrammarStruct {
   builtin_feature_name: Rule;
   wildcard: Rule;
   primitive_type: Rule;
-  boolean_literal: Rule;
+  boolean: Rule;
   eof: Rule;
   block_comment: Rule;
   line_comment: Rule;

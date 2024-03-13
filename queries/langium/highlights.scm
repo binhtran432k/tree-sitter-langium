@@ -65,7 +65,7 @@
 
 (builtin_feature_name) @keyword
 
-(boolean_literal) @boolean
+(boolean) @boolean
 
 (regex_pattern) @string.regexp
 

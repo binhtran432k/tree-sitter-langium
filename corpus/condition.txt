@@ -116,7 +116,7 @@ Hello: <true> 'hello';
     (rule_name
       (id))
     (conditional_branch
-      (boolean_literal)
+      (boolean)
       (keyword))))
 
 ================================================================================
@@ -139,7 +139,7 @@ Hello: <a & (b | c) & true> 'hello';
           (parameter_reference))
         (negation
           (negation
-            (boolean_literal))))
+            (boolean))))
       (keyword)))
   (parser_rule
     (rule_name
@@ -151,7 +151,7 @@ Hello: <a & (b | c) & true> 'hello';
           (conjunction
             (parameter_reference)
             (parameter_reference)))
-        (boolean_literal))
+        (boolean))
       (keyword)))
   (parser_rule
     (rule_name
@@ -163,7 +163,7 @@ Hello: <a & (b | c) & true> 'hello';
           (parameter_reference))
         (conjunction
           (parameter_reference)
-          (boolean_literal)))
+          (boolean)))
       (keyword)))
   (parser_rule
     (rule_name
@@ -176,5 +176,5 @@ Hello: <a & (b | c) & true> 'hello';
             (disjunction
               (parameter_reference)
               (parameter_reference))))
-        (boolean_literal))
+        (boolean))
       (keyword))))
