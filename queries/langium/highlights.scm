@@ -2,6 +2,7 @@
   "grammar"
   "interface"
   "extends"
+  "type"
   "with"
   "hidden"
   "entry"

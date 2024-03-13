@@ -33,7 +33,7 @@ module.exports = grammar({
       seq(
         optional($.grammar),
         repeat($.import),
-        repeat1(choice($._abstract_rule, $.interface)),
+        repeat1(choice($._abstract_rule, $.interface, $.type)),
       ),
 
     grammar: ($) =>
@@ -66,6 +66,15 @@ module.exports = grammar({
         ":",
         field("type", $._type_definition),
         optional(seq("=", field("value", $._value_literal))),
+        optional(";"),
+      ),
+
+    type: ($) =>
+      seq(
+        "type",
+        field("name", $.id),
+        "=",
+        field("type", $._type_definition),
         optional(";"),
       ),
 

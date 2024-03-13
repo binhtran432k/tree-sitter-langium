@@ -7,6 +7,7 @@ interface LangiumGrammarStruct {
   interface: Rule;
   extends: Rule;
   type_attribute: Rule;
+  type: Rule;
 
   _type_definition: Rule;
   union_type: Rule;
