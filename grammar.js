@@ -215,7 +215,7 @@ module.exports = grammar({
     terminal_cardinality: ($) =>
       seq($._terminal_token_element, choice("?", "*", "+")),
 
-    _terminal_token_element: ($) => choice($.regex),
+    _terminal_token_element: ($) => choice($._keyword, $.regex),
 
     _feature_name: ($) =>
       choice($.builtin_feature_name, $.primitive_type, $.id),
